@@ -60,6 +60,11 @@ int		main( void ) {
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+	//bonus
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::checkAmount ) );
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::checkAmount ) );
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displaynNbcheckAmountCalls ) );
+
 	return 0;
 }
 

@@ -30,6 +30,7 @@ public:
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
+	void	displaynNbcheckAmountCalls( void ) const;
 
 
 private:
@@ -45,6 +46,7 @@ private:
 	int				_amount;
 	int				_nbDeposits;
 	int				_nbWithdrawals;
+	mutable int		_nbcheckAmountCalls;
 
 	Account( void );
 

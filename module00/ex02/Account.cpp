@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <ctime>
 
-Account::Account( int initial_deposit ) : _accountIndex(Account::_nbAccounts) , _amount(initial_deposit) , _nbDeposits(0) , _nbWithdrawals(0)
+Account::Account( int initial_deposit ) : _accountIndex(Account::_nbAccounts) , _amount(initial_deposit) , _nbDeposits(0) , _nbWithdrawals(0), _nbcheckAmountCalls(0)
 {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created"
@@ -85,6 +85,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 int		Account::checkAmount( void ) const
 {
+	this->_nbcheckAmountCalls++;
 	return (this->_amount);
 }
 
@@ -112,6 +113,12 @@ void	Account::_displayTimestamp( void )
 	<< std::setw(2) << time->tm_hour
 	<< std::setw(2) << time->tm_min
 	<< std::setw(2) << time->tm_sec << "] ";
+}
+
+void	Account::displaynNbcheckAmountCalls( void ) const
+{
+	std::cout << "index:" << this->_accountIndex
+	<< "; NbcheckAmountCalls: " << this->_nbcheckAmountCalls << std::endl;
 }
 
 int	Account::_nbAccounts = 0;
