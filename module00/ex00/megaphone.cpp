@@ -1,3 +1,4 @@
+#include <string>
 #include <iostream>
   
 std::string ft_toupper(std::string str)
