@@ -10,6 +10,7 @@ Account::Account( int initial_deposit ) : _accountIndex(Account::_nbAccounts) , 
 	<< std::endl;
 	Account::_nbAccounts++;
 	Account::_totalAmount += initial_deposit;
+	return;
 }
 
 Account::~Account( void )
