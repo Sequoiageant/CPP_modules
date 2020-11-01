@@ -1,3 +1,6 @@
+#ifndef PONY_HPP
+#define PONY_HPP
+
 class Pony {
 
 public:
@@ -12,3 +15,5 @@ private:
 	std::string		_color;
 	std::string		_type;
 };
+
+#endif // PONY_HPP
