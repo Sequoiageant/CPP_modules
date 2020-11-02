@@ -17,7 +17,7 @@ public:
 	void	randomChump(void) const;
 
 private:
-	std::string type;
+	std::string _type;
 
 };
 

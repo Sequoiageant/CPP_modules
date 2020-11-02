@@ -1,17 +1,53 @@
-#include <iostream>
 #include "ZombieEvent.hpp"
+#include "Zombie.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+ZombieEvent::ZombieEvent()
+{
+	this->_type = "no type";
+	std::cout << "ZombieEvent instantiated" << std::endl;
+}
+
+ZombieEvent::~ZombieEvent()
+{
+	std::cout << "ZombieEvent deleted" << std::endl;
+}
 
 void	ZombieEvent::setZombieType(std::string type)
 {
-	std::cout << "setZombieType function: " << type << std::endl;
+	this->_type = type;
 }
 
 Zombie	*ZombieEvent::newZombie(std::string name) const
 {
-	std::cout << "newZombie function" << std::endl;
+	Zombie *z = new Zombie;
+
+	z->setName(name);
+	z->setType(this->_type);
+	return z;
+}
+
+void	getRandomString(int len, std::string & str)
+{
+	int	i(0);
+
+	srand (time(NULL));
+	while (i < len)
+	{
+		str.push_back(rand() % 26 + 'a');
+		i++;
+	}
 }
 
 void	ZombieEvent::randomChump(void) const
 {
-	std::cout << "randomChump function" << std::endl;
+	Zombie z;
+
+	std::string name;
+	getRandomString(7, name);
+	z.setName(name);
+	z.setType(this->_type);
+	z.advert();
 }
