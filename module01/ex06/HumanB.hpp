@@ -15,8 +15,8 @@ public:
 
 private:
 	std::string	_name;	
-	Weapon*		_weapon;	
-
+	Weapon*		_weapon;
+	std::string toupperString(std::string str);
 };
 
 

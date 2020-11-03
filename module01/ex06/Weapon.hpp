@@ -14,6 +14,8 @@ public:
 
 private:
 	std::string	_type;
+	std::string toupperString(std::string str);
+
 };
 
 #endif // WEAPON_HPP
