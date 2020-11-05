@@ -36,3 +36,4 @@
 a.out
 *.pdf
 test.cpp
+*.replace

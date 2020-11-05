@@ -6,7 +6,7 @@
 #    By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 10:39:10 by julnolle          #+#    #+#              #
-#    Updated: 2020/11/03 18:20:46 by julnolle         ###   ########.fr        #
+#    Updated: 2020/11/05 11:23:39 by julnolle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	rm -f *.replace
+
 # 	echo "$(_BOLD)$(_RED)-> $@ $(NAME) made$(_END)"
 
 re: fclean

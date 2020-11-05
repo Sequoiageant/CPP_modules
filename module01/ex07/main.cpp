@@ -1,6 +1,5 @@
 #include "Replace.hpp"
 #include <iostream>
-#include <fstream>
 
 int main(int ac, char const **av)
 {
@@ -8,17 +7,21 @@ int main(int ac, char const **av)
 
 	if (ac == 4)
 	{
+		if (file.setFileStreams(av[1]) == false)
+			return (1);
 		if (file.setStrings(av[2], av[3]) == false)
-		{
-			std::cout << "[string s1] or [string s2] is empty" << std::endl;
-			return 1;
-		}
-		file.printStrings();
+			return (1);
+		file.fillReplacementFile();
+		if (file.closeFileStreams() == false)
+			return (1);
+		// file.printStrings();
 	}
 	else
-		std::cout << "Need 3 arguments: [filename] [string] [string]" << std::endl;
-
-	return 0;
+	{
+		std::cerr << "The program needs 3 arguments: [filename] [string] [string]" << std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 /*int main(int ac, char const **av)
