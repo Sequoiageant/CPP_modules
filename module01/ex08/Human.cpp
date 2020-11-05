@@ -20,8 +20,9 @@ void	Human::intimidatingShout(std::string const & target)
 
 void	Human::action(std::string const & action_name, std::string const & target)
 {
+	typedef	void		(Human::*t_attack)(std::string const &);
 	static std::string	attacks[NB_ATTACKS] = {"meleeAttack", "rangedAttack", "intimidatingShout"};
-	static t_attack	func[NB_ATTACKS] = {&Human::meleeAttack, &Human::rangedAttack, &Human::intimidatingShout};
+	static t_attack		func[NB_ATTACKS] = {&Human::meleeAttack, &Human::rangedAttack, &Human::intimidatingShout};
 	int	i(0);
 
 	while (i < NB_ATTACKS)

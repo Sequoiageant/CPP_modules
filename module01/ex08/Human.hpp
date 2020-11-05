@@ -12,7 +12,6 @@ private:
 	void	intimidatingShout(std::string const & target);
 
 public:
-	typedef	void	(Human::*t_attack)(std::string const &);
 	void	action(std::string const & action_name, std::string const & target);
 };
 
