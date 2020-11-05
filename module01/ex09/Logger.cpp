@@ -20,8 +20,7 @@ std::string	Logger::getName(void) const
 
 void	Logger::logToConsole(std::string const & message)
 {
-	std::string log_message = this->makeLogEntry(message);
-	std::cout << log_message << std::endl;
+	std::cout << this->makeLogEntry(message) << std::endl;
 }
 
 void	Logger::logToFile(std::string const & message)
@@ -30,12 +29,12 @@ void	Logger::logToFile(std::string const & message)
 
 	if (!ofs.fail())
 	{
-		std::string log_message = this->makeLogEntry(message);
-		ofs << log_message << std::endl;
+		ofs << this->makeLogEntry(message) << std::endl;
 		std::cout << "message appended to [" << this->_name << "]" << std::endl;
 	}
 	else
 		std::cout << "logFile [" << this->_name << "] cannot be created or appended" << std::endl;
+	ofs.close();
 }
 
 void	Logger::log(std::string const & dest, std::string const & message)
