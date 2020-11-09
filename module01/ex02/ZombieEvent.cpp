@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/07 11:21:06 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/07 11:24:55 by julnolle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ZombieEvent.hpp"
 #include "Zombie.hpp"
 #include <iostream>
@@ -49,5 +61,5 @@ void	ZombieEvent::randomChump(void) const
 	getRandomString(7, name);
 	z.setName(name);
 	z.setType(this->_type);
-	z.advert();
+	z.announce();
 }

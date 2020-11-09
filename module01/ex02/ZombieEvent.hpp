@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/02 09:34:35 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/07 11:26:01 by julnolle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ZOMBIE_EVENT_HPP
 #define ZOMBIE_EVENT_HPP
 
 # include <string>
-
-class Zombie;
+# include "Zombie.hpp"
 
 class ZombieEvent
 {

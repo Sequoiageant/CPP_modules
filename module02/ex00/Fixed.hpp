@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 12:21:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/07 11:42:22 by julnolle         ###   ########.fr       */
+/*   Created: 2020/11/06 15:41:36 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/07 11:26:33 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_A_HPP
-#define HUMAN_A_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <string>
-#include "Weapon.hpp"
 
-class HumanA
-{
-
-public:
-	HumanA(std::string name, Weapon & weapon);
-	~HumanA();
-	void	attack(void) const;
+class Fixed {
 
 private:
-	std::string	_name;	
-	Weapon&		_weapon;
-	std::string toupperString(std::string str);
+	/* data */
+
+public:
+	Fixed();
+	Fixed(Fixed const & new);
+	~Fixed();
 };
 
-#endif // HUMAN_A_HPP
+#endif // FIXED_HPP

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/07 11:20:33 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/07 11:24:41 by julnolle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Zombie.hpp"
 
@@ -11,7 +23,7 @@ Zombie::~Zombie()
 	std::cout << this->_name << " died" << std::endl;
 }
 
-void Zombie::advert(void) const
+void Zombie::announce(void) const
 {
 	std::cout << "<" << this->_name << " (" << this->_type << ")>  Braiiiiiiinnnssss ..." << std::endl;
 }

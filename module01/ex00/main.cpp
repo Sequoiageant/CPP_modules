@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/31 19:57:23 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/07 11:14:36 by julnolle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Pony.hpp"
 
@@ -32,8 +44,10 @@ int	ponyOnTheHeap(void)
 
 int main(void)
 {
-	ponyOnTheHeap();
-	std::cout << std::endl;
 	ponyOnTheStack();
+	std::cout << "Back to main()" << std::endl;
+	std::cout << std::endl;
+	ponyOnTheHeap();
+	std::cout << "Back to main()" << std::endl;
 	return 0;
 }

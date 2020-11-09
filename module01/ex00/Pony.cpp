@@ -16,7 +16,7 @@ Pony::~Pony()
 
 void Pony::displayColor(void) const
 {
-	std::cout << this->_name << ": my color is " << this->_color << std::endl;
+	std::cout << this->_name << ": my color is " << this->_color << " and I am a " << this->_type << " Pony !" << std::endl;
 }
 
 int		Pony::_nbPony = 0;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/07 11:49:54 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/07 11:50:06 by julnolle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Replace.hpp"
 #include <iostream>
 
@@ -23,30 +35,3 @@ int main(int ac, char const **av)
 	}
 	return (0);
 }
-
-/*int main(int ac, char const **av)
-{
-	std::ifstream ifs;
-	std::ofstream ofs;
-	std::string	tmp;
-	char c;
-
-	if (ac == 4)
-	{
-		ifs.open(av[1]);
-		c = ifs.get();
-		while (ifs.good()) {
-			tmp += c;
-			c = ifs.get();
-		}
-		std::cout << tmp << "a" << std::endl;
-		ofs.open("output_file");
-		ofs << tmp;
-
-		ifs.close();
-		ofs.close();
-	}
-	else
-		std::cout << "Need 3 arguments: [filename] [string] [string]" << std::endl;
-	return 0;
-}*/
