@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:43:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/09 17:38:44 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/10 14:30:32 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@ public:
 	Fixed operator-(Fixed const & rhs) const;
 	Fixed operator*(Fixed const & rhs) const;
 	Fixed operator/(Fixed const & rhs) const;
+
+	Fixed operator++();
+	Fixed operator++(int);
+	Fixed operator--();
+	Fixed operator--(int);
+
+	static Fixed & 			min(Fixed & lhs, Fixed & rhs);
+	static Fixed & 			max(Fixed & lhs, Fixed & rhs);
+	static const Fixed & 	min(Fixed const & lhs, Fixed const & rhs);
+	static const Fixed & 	max(Fixed const & lhs, Fixed const & rhs);
 
 };
 

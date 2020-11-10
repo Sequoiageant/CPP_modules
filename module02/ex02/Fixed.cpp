@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:50:24 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/09 17:54:40 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/10 14:36:10 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ Fixed::Fixed(float const float_val)
 	this->_fixed_value = roundf(float_val * (1 << Fixed::_numbOfFracBits));
 }
 
-Fixed::Fixed(Fixed const & newFixed)
+Fixed::Fixed(Fixed const & newFixed) : _fixed_value(newFixed.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_fixed_value = newFixed.getRawBits();
 }
 
 Fixed::~Fixed()
@@ -106,22 +105,86 @@ bool Fixed::operator!=(Fixed const & rhs) const
 
 Fixed	Fixed::operator+(Fixed const & rhs) const
 {
-	return Fixed(this->_fixed_value + rhs.getRawBits());
+	return Fixed(this->toFloat() + rhs.toFloat());
 }
 
 Fixed Fixed::operator-(Fixed const & rhs) const
 {
-	return Fixed(this->_fixed_value - rhs.getRawBits());
+	return Fixed(this->toFloat() - rhs.toFloat());
 }
 
 Fixed Fixed::operator*(Fixed const & rhs) const
 {
-	return Fixed(this->_fixed_value * rhs.getRawBits());
+	return Fixed(this->toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator/(Fixed const & rhs) const
 {
-	return Fixed(this->_fixed_value / rhs.getRawBits());
+	return Fixed(this->toFloat() / rhs.toFloat());
+}
+
+Fixed Fixed::operator++()
+{
+	this->_fixed_value++;
+
+	return Fixed(this->toFloat());
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+
+	this->_fixed_value++;
+
+	return tmp;
+}
+
+Fixed Fixed::operator--()
+{
+	this->_fixed_value--;
+
+	return Fixed(this->toFloat());
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+
+	this->_fixed_value--;
+
+	return tmp;
+}
+
+Fixed & Fixed::min(Fixed & lhs, Fixed & rhs)
+{
+   if (lhs <= rhs)
+        return lhs;
+    else
+        return rhs;
+}
+
+Fixed & Fixed::max(Fixed & lhs, Fixed & rhs)
+{
+   if (lhs >= rhs)
+        return lhs;
+    else
+        return rhs; 
+}
+
+const Fixed & 	Fixed::min(Fixed const & lhs, Fixed const & rhs)
+{
+   if (lhs <= rhs)
+        return lhs;
+    else
+        return rhs;
+}
+
+const Fixed & 	Fixed::max(Fixed const & lhs, Fixed const & rhs)
+{
+   if (lhs >= rhs)
+        return lhs;
+    else
+        return rhs;
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
