@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 14:35:44 by julnolle         ###   ########.fr       */
+/*   Created: 2020/11/24 14:04:19 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/24 17:44:28 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef SUPER_MUTANT_HPP
+# define SUPER_MUTANT_HPP
 
 # include <string>
 # include <iostream>
+# include "Enemy.hpp"
 
-class Victim {
+class SuperMutant : public Enemy {
 
 private:
 
-protected:
-	Victim(void);
-	std::string _name;
-
 public:
-	Victim(std::string const name);
-	Victim(Victim const & copy);
-	virtual ~Victim(void);
-	Victim& operator=(Victim const & rhs);
+	SuperMutant(void);
+	SuperMutant(int hp, std::string const & type);
+	SuperMutant(SuperMutant const & copy);
+	virtual ~SuperMutant(void);
+	SuperMutant& operator=(SuperMutant const & rhs);
 
-	std::string const	getName(void) const;
-	virtual void		introduce(void) const;
-	virtual void		getPolymorphed(void) const;
+	virtual void		takeDamage(int);
 };
 
-std::ostream& operator<<(std::ostream & o, Victim const & rhs);
+std::ostream & operator<<(std::ostream & o, SuperMutant const & rhs);
 
-#endif // VICTIM_HPP
+#endif // SUPER_MUTANT_HPP

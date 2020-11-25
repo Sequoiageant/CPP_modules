@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 09:49:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 10:46:31 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/24 17:00:36 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ public:
 	~Sorcerer(void);
 	Sorcerer& operator=(Sorcerer const & rhs);
 
-	void		introduce(void) const;
-	std::string getName(void) const;
-	std::string getTitle(void) const;
-	void		polymorph(Victim const &) const;
+	void				introduce(void) const;
+	std::string	const	getName(void) const;
+	std::string	const	getTitle(void) const;
+	void				polymorph(Victim const &) const;
 };
 
 std::string toupperString(std::string str);

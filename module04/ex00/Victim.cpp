@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 11:13:22 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:36:18 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void Victim::introduce(void) const
 	std::cout << "I am " << this->_name << ", " << ", and I like otters!" << std::endl;
 }
 
-std::string Victim::getName(void) const
+std::string const Victim::getName(void) const
 {
 	return (this->_name);
 }

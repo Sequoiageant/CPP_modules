@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 14:35:44 by julnolle         ###   ########.fr       */
+/*   Created: 2020/11/24 17:56:57 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/24 17:59:29 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef RAD_SCORPION_HPP
+# define RAD_SCORPION_HPP
 
 # include <string>
 # include <iostream>
+# include "Enemy.hpp"
 
-class Victim {
+class RadScorpion : public Enemy {
 
 private:
 
-protected:
-	Victim(void);
-	std::string _name;
-
 public:
-	Victim(std::string const name);
-	Victim(Victim const & copy);
-	virtual ~Victim(void);
-	Victim& operator=(Victim const & rhs);
+	RadScorpion(void);
+	RadScorpion(int hp, std::string const & type);
+	RadScorpion(RadScorpion const & copy);
+	virtual ~RadScorpion(void);
+	RadScorpion& operator=(RadScorpion const & rhs);
 
-	std::string const	getName(void) const;
-	virtual void		introduce(void) const;
-	virtual void		getPolymorphed(void) const;
+	// virtual void		takeDamage(int);
 };
 
-std::ostream& operator<<(std::ostream & o, Victim const & rhs);
+std::ostream & operator<<(std::ostream & o, RadScorpion const & rhs);
 
-#endif // VICTIM_HPP
+#endif // RAD_SCORPION_HPP

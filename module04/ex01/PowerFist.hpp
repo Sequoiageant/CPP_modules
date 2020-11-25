@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 14:35:44 by julnolle         ###   ########.fr       */
+/*   Created: 2020/11/24 14:04:19 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/24 16:52:09 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef POWER_FIST_HPP
+# define POWER_FIST_HPP
 
 # include <string>
 # include <iostream>
+# include "AWeapon.hpp"
 
-class Victim {
+class PowerFist : public AWeapon {
 
 private:
 
-protected:
-	Victim(void);
-	std::string _name;
-
 public:
-	Victim(std::string const name);
-	Victim(Victim const & copy);
-	virtual ~Victim(void);
-	Victim& operator=(Victim const & rhs);
+	PowerFist(void);
+	PowerFist(std::string const & name, int apcost, int damage);
+	PowerFist(PowerFist const & copy);
+	virtual ~PowerFist(void);
+	PowerFist& operator=(PowerFist const & rhs);
 
-	std::string const	getName(void) const;
-	virtual void		introduce(void) const;
-	virtual void		getPolymorphed(void) const;
+	virtual void attack(void) const;
 };
 
-std::ostream& operator<<(std::ostream & o, Victim const & rhs);
+std::ostream & operator<<(std::ostream & o, PowerFist const & rhs);
 
-#endif // VICTIM_HPP
+#endif // POWER_FIST_HPP

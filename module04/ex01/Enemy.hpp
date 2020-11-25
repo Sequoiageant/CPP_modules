@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 14:35:44 by julnolle         ###   ########.fr       */
+/*   Created: 2020/11/24 14:04:19 by julnolle          #+#    #+#             */
+/*   Updated: 2020/11/24 17:44:32 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 # include <string>
 # include <iostream>
 
-class Victim {
+class Enemy {
 
 private:
 
 protected:
-	Victim(void);
-	std::string _name;
+	Enemy(void);
+	int			_hp;
+	std::string _type;
 
 public:
-	Victim(std::string const name);
-	Victim(Victim const & copy);
-	virtual ~Victim(void);
-	Victim& operator=(Victim const & rhs);
-
-	std::string const	getName(void) const;
-	virtual void		introduce(void) const;
-	virtual void		getPolymorphed(void) const;
+	Enemy(int hp, std::string const & type);
+	Enemy(Enemy const & copy);
+	virtual ~Enemy(void);
+	Enemy& operator=(Enemy const & rhs);
+	std::string const	getType(void) const;
+	int					getHP(void) const;
+	virtual void		takeDamage(int);
 };
 
-std::ostream& operator<<(std::ostream & o, Victim const & rhs);
 
-#endif // VICTIM_HPP
+std::ostream & operator<<(std::ostream & o, Enemy const & rhs);
+
+#endif // ENEMY_HPP

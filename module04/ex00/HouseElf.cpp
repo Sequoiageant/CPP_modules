@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 13:52:35 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:36:01 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ HouseElf& HouseElf::operator=(HouseElf const & rhs)
 void HouseElf::introduce(void) const
 {
 	std::cout << "I am " << this->_name << ", " << ", and I like cats!" << std::endl;
-}
-
-std::string HouseElf::getName(void) const
-{
-	return (this->_name);
 }
 
 void	HouseElf::getPolymorphed(void) const

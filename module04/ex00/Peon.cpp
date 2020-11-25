@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 13:42:21 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/24 15:03:05 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ void Peon::introduce(void) const
 {
 	std::cout << "I am " << this->_name << ", " << ", and I like otters!" << std::endl;
 }
-
-/*std::string Peon::getName(void) const
-{
-	return (this->_name);
-}*/
 
 void	Peon::getPolymorphed(void) const
 {
