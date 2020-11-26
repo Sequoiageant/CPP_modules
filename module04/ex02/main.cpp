@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 16:33:35 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:55:45 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int main(void)
 	// ISpaceMarine* joe;
 	
 	ISquad* vlc = new Squad;
-	ISquad* vlc_copy = new Squad(vlc);
 	
 	joe = jim;
 
@@ -38,7 +37,6 @@ int main(void)
 	std::cout << std::endl << "------> ATTACK TESTS OF ALL UNITS IN SQUAD <------" << std::endl;
 	/*Count of marines in Squad vlc*/
 	std::cout << "Count of units in squad: " << vlc->getCount() << std::endl;
-	std::cout << "Count of units in squad: " << vlc_copy->getCount() << std::endl;
 
 	for (int i = 0; i < vlc->getCount(); ++i)
 	{
@@ -49,6 +47,20 @@ int main(void)
 	}
 
 	delete vlc; // Should delete all Units in Squad vlc
+
+	std::cout << std::endl << "------> DEEP COPY TEST <------" << std::endl;
+	
+	ISpaceMarine* jack = new AssaultTerminator;
+	Squad squad1;
+	squad1.push(jack);
+	
+	squad1.getUnit(0)->battleCry();
+	
+	std::cout << "Count of units in squad1: " << squad1.getCount() << std::endl;
+	
+	Squad squad2(squad1);
+	std::cout << "Count of units in squad2: " << squad2.getCount() << std::endl;
+	// squad2.getUnit(0)->battleCry();
 
 	return 0;
 }

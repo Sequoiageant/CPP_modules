@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 10:11:16 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:57:18 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ TacticalMarine::TacticalMarine(void)
 
 TacticalMarine::TacticalMarine(TacticalMarine const & copy)
 {
-	*this = copy;
+	// *this = copy;
+	(void)copy;
 }
 
 TacticalMarine::~TacticalMarine(void)
@@ -36,8 +37,7 @@ TacticalMarine & TacticalMarine::operator=(TacticalMarine const & rhs)
 
 ISpaceMarine* TacticalMarine::clone(void) const
 {
-	ISpaceMarine* clone = new TacticalMarine(*this);
-	return clone;
+	return (new TacticalMarine);
 }
 
 void TacticalMarine::battleCry(void) const

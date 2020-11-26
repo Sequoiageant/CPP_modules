@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 16:24:07 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 19:01:02 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,32 @@ Squad::Squad(Squad const & copy)
 {
 	t_unit *tmp;
 
-	while (this->_units)
-	{
-		tmp = this->_units->next;
-		delete this->_units->marine;
-		delete this->_units;
-		this->_units = tmp;
-	}
-	
+	// while (this->_units)
+	// {
+	// 	tmp = this->_units->next;
+	// 	delete this->_units->marine;
+	// 	delete this->_units;
+	// 	this->_units = tmp;
+	// }
+
+	if (this->_units != NULL)
+    {
+        delete this->_units->marine;
+        tmp = this->_units;
+        this->_units = this->_units->next;
+        delete tmp;
+    }
+		std::cerr << "AVANT CLONE" << std::endl;
+	this->_count = copy._count;
+	std::cerr << "COUNT: " << this->_count << std::endl;
+	// this->_units = new t_unit;
 	for (int i = 0; i < copy.getCount(); i++)
 	{
+		std::cerr << "IN LOOP" << std::endl;
 		this->push((copy.getUnit(i))->clone());
 	}
-	delete copy._units;
+		std::cerr << "APRES CLONE" << std::endl;
+	// delete copy._units;
 }
 
 Squad::~Squad(void)
@@ -113,6 +126,7 @@ int Squad::push(ISpaceMarine* marine)
 					copy = copy->next;
 				}
 				copy->next = newUnit;				
+				std::cerr << "newUnit in PRE existing list" << std::endl;
 			}
 			else
 			{
@@ -121,7 +135,10 @@ int Squad::push(ISpaceMarine* marine)
 			}
 		}
 		else
+		{
 			this->_units = newUnit;
+			std::cerr << "newUnit in NON existing list" << std::endl;
+		}
 		this->_count++;
 	}
 	else

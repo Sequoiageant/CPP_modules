@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 10:11:05 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:57:50 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ AssaultTerminator::AssaultTerminator(void)
 
 AssaultTerminator::AssaultTerminator(AssaultTerminator const & copy)
 {
-	*this = copy;
+	// *this = copy;
+	(void)copy;
 }
 
 AssaultTerminator::~AssaultTerminator(void)
@@ -36,8 +37,7 @@ AssaultTerminator & AssaultTerminator::operator=(AssaultTerminator const & rhs)
 
 ISpaceMarine* AssaultTerminator::clone(void) const
 {
-	ISpaceMarine* clone = new AssaultTerminator(*this);
-	return clone;
+	return (new AssaultTerminator);
 }
 
 void AssaultTerminator::battleCry(void) const
