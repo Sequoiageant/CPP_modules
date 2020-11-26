@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/25 11:23:26 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 10:05:53 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 # include <iostream>
-# include "ISpaceMarine"
+# include "ISpaceMarine.hpp"
 
 class TacticalMarine : public ISpaceMarine {
 

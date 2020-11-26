@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/25 19:04:19 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 16:07:53 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <string>
 # include <iostream>
-# include "ISquad"
-# include "ISpaceMarine"
+# include "ISquad.hpp"
+# include "ISpaceMarine.hpp"
 
 class Squad : public ISquad {
 
@@ -25,13 +25,14 @@ private:
 	{
 		ISpaceMarine*	marine;
 		struct s_unit	*next;
-	}					t_Unit;
+	}					t_unit;
 
+	/*Attributs*/
 	int					_count;
-	t_Unit				*_units;
-	
-	//ISpaceMarine**	_units;
+	t_unit				*_units;
 
+	bool checkDuplicate(ISpaceMarine*);
+	
 public:
 	Squad(void);
 	Squad(Squad const & copy);

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/25 16:01:32 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 10:11:16 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ TacticalMarine::~TacticalMarine(void)
 
 TacticalMarine & TacticalMarine::operator=(TacticalMarine const & rhs)
 {
+	(void)rhs;
 	return (*this);
 }
 

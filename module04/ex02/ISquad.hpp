@@ -6,14 +6,14 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/25 11:18:56 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/26 10:05:16 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef I_SQUAD_HPP
 # define I_SQUAD_HPP
 
-# include "ISpaceMarine"
+# include "ISpaceMarine.hpp"
 
 class ISquad {
 
