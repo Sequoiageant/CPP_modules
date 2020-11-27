@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/27 10:45:52 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:53:25 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,6 @@ Squad::Squad(void) : _count(0), _units(NULL)
 
 Squad::Squad(Squad const & copy) : _count(0), _units(NULL)
 {
-	// t_unit *tmp;
-
-	// while (this->_units)
-	// {
-	// 	tmp = this->_units->next;
-	// 	delete this->_units->marine;
-	// 	delete this->_units;
-	// 	this->_units = tmp;
-	// }
-	// this->_units = NULL;
-
-	this->_count = 0;
 	for (int i = 0; i < copy.getCount(); i++)
 	{
 		this->push((copy.getUnit(i))->clone());

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/27 10:42:10 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:52:53 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(void)
 	ISpaceMarine* bob = new TacticalMarine;
 	ISpaceMarine* jim = new AssaultTerminator;
 	ISpaceMarine* joe;
-	// ISpaceMarine* joe;
 	
 	ISquad* vlc = new Squad;
 	
@@ -59,8 +58,8 @@ int main(void)
 	std::cout << "Count of units in squad1: " << squad1->getCount() << std::endl;
 	std::cout << "Unit in squad1 pointer: " << squad1->getUnit(0) << std::endl;
 	
-	Squad* squad2 = new Squad(*squad1);
-	// squad2 = *squad1;
+	Squad* squad2 = new Squad(*squad1); //Creates squad 2 by copy of squad1
+
 	std::cout << "Count of units in squad2: " << squad2->getCount() << std::endl;
 	std::cout << "Unit in squad2 pointer: " << squad2->getUnit(0) << std::endl;
 	squad2->getUnit(0)->battleCry();
