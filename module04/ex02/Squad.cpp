@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 19:01:02 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:45:52 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ Squad::Squad(void) : _count(0), _units(NULL)
 	std::cout << "Squad created" << std::endl;
 }
 
-Squad::Squad(Squad const & copy)
+Squad::Squad(Squad const & copy) : _count(0), _units(NULL)
 {
-	t_unit *tmp;
+	// t_unit *tmp;
 
 	// while (this->_units)
 	// {
@@ -30,25 +30,13 @@ Squad::Squad(Squad const & copy)
 	// 	delete this->_units;
 	// 	this->_units = tmp;
 	// }
+	// this->_units = NULL;
 
-	if (this->_units != NULL)
-    {
-        delete this->_units->marine;
-        tmp = this->_units;
-        this->_units = this->_units->next;
-        delete tmp;
-    }
-		std::cerr << "AVANT CLONE" << std::endl;
-	this->_count = copy._count;
-	std::cerr << "COUNT: " << this->_count << std::endl;
-	// this->_units = new t_unit;
+	this->_count = 0;
 	for (int i = 0; i < copy.getCount(); i++)
 	{
-		std::cerr << "IN LOOP" << std::endl;
 		this->push((copy.getUnit(i))->clone());
 	}
-		std::cerr << "APRES CLONE" << std::endl;
-	// delete copy._units;
 }
 
 Squad::~Squad(void)
@@ -62,6 +50,25 @@ Squad::~Squad(void)
 		delete this->_units;
 		this->_units = tmp;
 	}
+}
+
+Squad & Squad::operator=(Squad const & rhs)
+{
+	t_unit *tmp;
+
+	while (this->_units)
+	{
+		tmp = this->_units->next;
+		delete this->_units->marine;
+		delete this->_units;
+		this->_units = tmp;
+	}
+	this->_count = 0;
+	for (int i = 0; i < rhs._count; i++)
+	{
+		this->push((rhs.getUnit(i))->clone());
+	}
+	return (*this);
 }
 
 int Squad::getCount(void) const
@@ -104,7 +111,6 @@ bool Squad::checkDuplicate(ISpaceMarine* marine)
 	return (true);
 }
 
-
 int Squad::push(ISpaceMarine* marine)
 {
 	t_unit *newUnit;
@@ -126,7 +132,6 @@ int Squad::push(ISpaceMarine* marine)
 					copy = copy->next;
 				}
 				copy->next = newUnit;				
-				std::cerr << "newUnit in PRE existing list" << std::endl;
 			}
 			else
 			{
@@ -135,19 +140,10 @@ int Squad::push(ISpaceMarine* marine)
 			}
 		}
 		else
-		{
 			this->_units = newUnit;
-			std::cerr << "newUnit in NON existing list" << std::endl;
-		}
 		this->_count++;
 	}
 	else
 		std::cerr << "The marine cannot be NULL" << std::endl;
 	return (this->_count);
-}
-
-Squad & Squad::operator=(Squad const & rhs)
-{
-	(void)rhs;
-	return (*this);
 }

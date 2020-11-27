@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 18:55:45 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:42:10 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,46 @@ int main(void)
 
 	delete vlc; // Should delete all Units in Squad vlc
 
-	std::cout << std::endl << "------> DEEP COPY TEST <------" << std::endl;
+	std::cout << std::endl << "------> DEEP COPY <------" << std::endl;
 	
 	ISpaceMarine* jack = new AssaultTerminator;
-	Squad squad1;
-	squad1.push(jack);
+	Squad* squad1 = new Squad;
+	squad1->push(jack);
 	
-	squad1.getUnit(0)->battleCry();
+	squad1->getUnit(0)->battleCry();
 	
-	std::cout << "Count of units in squad1: " << squad1.getCount() << std::endl;
+	std::cout << "Count of units in squad1: " << squad1->getCount() << std::endl;
+	std::cout << "Unit in squad1 pointer: " << squad1->getUnit(0) << std::endl;
 	
-	Squad squad2(squad1);
-	std::cout << "Count of units in squad2: " << squad2.getCount() << std::endl;
-	// squad2.getUnit(0)->battleCry();
+	Squad* squad2 = new Squad(*squad1);
+	// squad2 = *squad1;
+	std::cout << "Count of units in squad2: " << squad2->getCount() << std::endl;
+	std::cout << "Unit in squad2 pointer: " << squad2->getUnit(0) << std::endl;
+	squad2->getUnit(0)->battleCry();
 
+	delete squad1;
+	delete squad2;
+
+	std::cout << std::endl << "------> ASSIGNATION DEEP COPY <------" << std::endl;
+	
+	ISpaceMarine* michel = new AssaultTerminator;
+	ISpaceMarine* renee = new TacticalMarine;
+	Squad* squad3 = new Squad;
+	squad3->push(michel);
+	
+	squad3->getUnit(0)->battleCry();
+	
+	std::cout << "Count of units in squad3: " << squad3->getCount() << std::endl;
+	std::cout << "Unit in squad3 pointer: " << squad3->getUnit(0) << std::endl;
+	
+	Squad squad4;
+	squad4.push(renee); // push renee in squad4
+
+	squad4 = *squad3; // Renee must be deleted in suqad 4 and a copy of michel must be pushed
+	std::cout << "Count of units in squad4: " << squad4.getCount() << std::endl;
+	std::cout << "Unit in squad4 pointer: " << squad4.getUnit(0) << std::endl;
+	squad4.getUnit(0)->battleCry();
+
+	delete squad3;
 	return 0;
 }

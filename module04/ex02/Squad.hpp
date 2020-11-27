@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 16:07:53 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:52:03 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ public:
 	Squad(void);
 	Squad(Squad const & copy);
 	virtual ~Squad(void);
+	Squad & operator=(Squad const & rhs);
+	
 	virtual int getCount(void) const;
 	virtual ISpaceMarine* getUnit(int) const;
 	virtual int push(ISpaceMarine*);
 
-	Squad & operator=(Squad const & rhs);
 };
 
 std::ostream & operator<<(std::ostream & o, Squad const & rhs);

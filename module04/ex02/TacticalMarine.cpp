@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:12:48 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/26 18:57:18 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:46:15 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ TacticalMarine::TacticalMarine(void)
 
 TacticalMarine::TacticalMarine(TacticalMarine const & copy)
 {
-	// *this = copy;
-	(void)copy;
+	*this = copy;
 }
 
 TacticalMarine::~TacticalMarine(void)
