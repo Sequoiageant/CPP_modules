@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/27 12:04:01 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/28 10:58:11 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 
 # include <string>
 # include <iostream>
+# include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class Cure {
-
-private:
-	/* attributes */
+class Cure : public AMateria {
 
 public:
 	Cure(void);
-	Cure(std::string const & type);
 	Cure(Cure const & copy);
 	virtual ~Cure();
 	Cure & operator=(Cure const & rhs);

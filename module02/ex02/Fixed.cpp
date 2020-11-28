@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:50:24 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/10 14:36:10 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/28 15:17:08 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@ const int	Fixed::_numbOfFracBits = 8;
 
 Fixed::Fixed() : _fixed_value(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int const int_val)
 {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     this->_fixed_value = int_val << Fixed::_numbOfFracBits;
 }
 
 Fixed::Fixed(float const float_val)
 {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
 	this->_fixed_value = roundf(float_val * (1 << Fixed::_numbOfFracBits));
 }
 
 Fixed::Fixed(Fixed const & newFixed) : _fixed_value(newFixed.getRawBits())
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::getRawBits(void) const
@@ -51,7 +51,7 @@ int		Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->_fixed_value = raw;
 }
 
@@ -67,7 +67,7 @@ int		Fixed::toInt(void) const
 
 Fixed & Fixed::operator=(Fixed const & rhs)
 {
-    std::cout << "Assignation operator called" << std::endl;
+    // std::cout << "Assignation operator called" << std::endl;
     this->_fixed_value = rhs.getRawBits();
 
     return *this;

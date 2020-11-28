@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/27 12:05:28 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/28 11:47:54 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,26 @@
 
 # include <string>
 # include <iostream>
-# include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria {
 
 private:
 	std::string		_type;
 	unsigned int	_xp;
+	AMateria(void);
 
 public:
-	AMateria(void);
 	AMateria(std::string const & type);
 	AMateria(AMateria const & copy);
-	virtual ~AMateria();
+	virtual ~AMateria(void);
 	AMateria & operator=(AMateria const & rhs);
 
-	std::string const & getType() const; //Returns the materia type
-	unsigned int getXP() const; //Returns the Materia's XP
+	std::string const & getType(void) const; //Returns the materia type
+	unsigned int getXP(void) const; //Returns the Materia's XP
 
-	virtual AMateria* clone() const = 0;
+	virtual AMateria* clone(void) const = 0;
 	virtual void use(ICharacter& target);
 };
 

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/27 12:03:55 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/28 10:58:23 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 # include <string>
 # include <iostream>
+# include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class Ice {
+class Ice : public AMateria {
 
 public:
 	Ice(void);
-	Ice(std::string const & type);
 	Ice(Ice const & copy);
-	virtual ~Ice();
+	virtual ~Ice(void);
 	Ice & operator=(Ice const & rhs);
 
-	virtual Ice* clone() const;
+	virtual Ice* clone(void) const;
 	virtual void use(ICharacter& target);
 };
 

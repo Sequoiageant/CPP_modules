@@ -39,4 +39,4 @@ test.cpp
 *.replace
 *.log
 
-module02/*/main.cpp
+# module02/*/main.cpp
