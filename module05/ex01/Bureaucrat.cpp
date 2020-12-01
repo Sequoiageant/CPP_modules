@@ -6,18 +6,19 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 19:36:06 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:23:50 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 {
 	if (grade < 1)
-		throw GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = grade;
 }
@@ -64,6 +65,18 @@ void	Bureaucrat::decrementGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+}
+
+void	Bureaucrat::signForm(Form* form)
+{
+	try {
+			form->beSigned(this);
+			std::cout << this->_name << " signs form " << form->getName() << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cout << this->_name << " cannot sign form " << form->getName()
+		<< " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs)
