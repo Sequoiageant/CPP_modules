@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:40:21 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 15:07:36 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:09:53 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include "IMiningLaser.hpp"
 
 class DeepCoreMiner : public IMiningLaser {
-
-private:
-	/* attributes */
 
 public:
 	DeepCoreMiner(void);

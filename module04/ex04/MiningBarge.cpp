@@ -6,12 +6,11 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:40:21 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 15:57:43 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:10:25 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MiningBarge.hpp"
-// #include "StripMiner.hpp"
 
 MiningBarge::MiningBarge(void) : _laser(), _nbLasers(0)
 {

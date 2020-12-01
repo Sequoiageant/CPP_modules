@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:40:21 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 14:57:19 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:10:07 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <iostream>
 # include "StripMiner.hpp"
 # include "DeepCoreMiner.hpp"
-// class IMiningLaser;
 
 class IAsteroid {
 

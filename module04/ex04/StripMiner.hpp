@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:40:21 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 15:07:30 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:10:39 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include "IMiningLaser.hpp"
 
 class StripMiner : public IMiningLaser {
-
-private:
-	/* attributes */
 
 public:
 	StripMiner(void);
