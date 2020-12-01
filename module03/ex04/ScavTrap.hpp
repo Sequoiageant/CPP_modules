@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:55:52 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 18:16:54 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/30 15:48:11 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
-
-private:
 
 public:
 	ScavTrap(void);

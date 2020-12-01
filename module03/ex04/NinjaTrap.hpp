@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 11:50:58 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 15:23:10 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 09:57:42 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class NinjaTrap : virtual public ClapTrap {
+class NinjaTrap : public virtual ClapTrap {
 
 private:
 

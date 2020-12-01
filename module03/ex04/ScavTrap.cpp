@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 12:27:36 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 10:13:01 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ ScavTrap& ScavTrap::operator=(ScavTrap const & rhs)
 
 void	ScavTrap::challengeNewcomer(void) const
 {
-	static std::string	challenges[5] = {"challenge 1", "challenge 2", "challenge 3", "challenge 4", "challenge 5"};
+	static std::string	challenges[5] = {"Beat Trump in stupidity", "Take off the Duracel of Sarko", "Laugh at kim jong un", "Make the war like Macron", "Like sex more than DSK"};
 
 	std::cout << "FR4G-TP " << this->_name
-	<< " offers: And the challenge is.... " << challenges[rand() % 5] << " !" << std::endl;	
+	<< " offers: And the idiotic challenge is.... " << challenges[rand() % 5] << " !" << std::endl;	
 }

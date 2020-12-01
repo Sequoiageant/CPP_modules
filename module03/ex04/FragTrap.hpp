@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 16:14:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 15:23:18 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 10:47:34 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap {
-
-private:
+class FragTrap : public virtual ClapTrap {
 
 public:
 	FragTrap(void);
@@ -36,7 +34,7 @@ public:
 	void	funnyAttack(std::string const & target);
 	void	sleepingAttack(std::string const & target);
 	void	crapyAttack(std::string const & target);
-	/* Custom Attacks */
+	/* End Custom Attacks */
 
 	FragTrap& operator=(FragTrap const & rhs);
 };

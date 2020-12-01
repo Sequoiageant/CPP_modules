@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 16:14:40 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/30 19:11:10 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,34 @@
 #include <iostream>
 #include <cstdlib> // rand()
 
-NinjaTrap::NinjaTrap() : ClapTrap("no name", 60, 60, 120, 120, 1, 60, 5, 0)
+NinjaTrap::NinjaTrap()// : ClapTrap("no name", 60, 60, 120, 120, 1, 60, 5, 0)
 {
 	srand(time(NULL));
+	this->_name = "no name";
+	this->_hit_points = 60;
+	this->_max_hit_points = 60;
+	this->_energy_points = 120;
+	this->_max_energy_points = 120;
+	this->_level = 1;
+	this->_melee_attack_damage = 60;
+	this->_ranged_attack_damage = 5;
+	this->_armor_damage_reduction = 0;
 	std::cout << "NinjaTrap Default constructor called, " << this->_name
 	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
 }
 
-NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
+NinjaTrap::NinjaTrap(std::string name)// : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
 	srand(time(NULL));
+	this->_name = name;
+	this->_hit_points = 60;
+	this->_max_hit_points = 60;
+	this->_energy_points = 120;
+	this->_max_energy_points = 120;
+	this->_level = 1;
+	this->_melee_attack_damage = 60;
+	this->_ranged_attack_damage = 5;
+	this->_armor_damage_reduction = 0;
 	std::cout << "NinjaTrap Overload constructor called, " << this->_name
 	<< " says: \"I'M A NinjaTrap\"" << std::endl;
 }

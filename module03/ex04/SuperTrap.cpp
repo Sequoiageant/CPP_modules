@@ -6,39 +6,58 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 15:58:54 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 10:47:28 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+// #include "ClapTrap.hpp"
 #include "SuperTrap.hpp"
-#include "NinjaTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+// #include "NinjaTrap.hpp"
+// #include "FragTrap.hpp"
+// #include "ScavTrap.hpp"
 #include <iostream>
 #include <cstdlib> // rand()
 
-SuperTrap::SuperTrap() : ClapTrap("no name", 100, 100, 120, 120, 1, 60, 20, 5)
+SuperTrap::SuperTrap(void)
 {
 	srand(time(NULL));
-	std::cout << "SuperTrap Default constructor called, " << this->_name << std::endl;
+	this->_name = "no name";
+	// this->_hit_points = 100;
+	// this->_max_hit_points = 100;
+	// this->_energy_points = 120;
+	// this->_max_energy_points = 1220;
+	this->_level = 1;
+	// this->_melee_attack_damage = 60;
+	// this->_ranged_attack_damage = 20;
+	// this->_armor_damage_reduction = 5;
+	// std::cout << "SuperTrap Default constructor called, " << this->_name << std::endl;
 }
 
-SuperTrap::SuperTrap(std::string name) : ClapTrap(name, 100, 100, 120, 120, 1, 60, 20, 5)
+SuperTrap::SuperTrap(std::string name)
 {
 	srand(time(NULL));
+	this->_name = name;
+	this->_hit_points = FragTrap::_hit_points;
+	this->_max_hit_points = FragTrap::_max_hit_points;
+	this->_energy_points = NinjaTrap::_energy_points;
+	this->_max_energy_points = NinjaTrap::_max_energy_points;
+	this->_level = 1;
+	this->_melee_attack_damage = NinjaTrap::_melee_attack_damage;
+	this->_ranged_attack_damage = FragTrap::_ranged_attack_damage;
+	this->_armor_damage_reduction = FragTrap::_armor_damage_reduction;
 	std::cout << "SuperTrap Overload constructor called, " << this->_name << std::endl;
+
 }
 
 SuperTrap::SuperTrap(SuperTrap const & copy)
 {
 	*this = copy;
-	std::cout << "SuperTrap Copy constructor called, " << this->_name << std::endl;
+	// std::cout << "SuperTrap Copy constructor called, " << this->_name << std::endl;
 }
 
 SuperTrap::~SuperTrap(void)
 {
-	std::cout << "SuperTrap Destructor called, " << this->_name << " died with honors" << std::endl;
+	// std::cout << "SuperTrap Destructor called, " << this->_name << " died with honors" << std::endl;
 }
 
 SuperTrap& SuperTrap::operator=(SuperTrap const & rhs)
@@ -48,7 +67,7 @@ SuperTrap& SuperTrap::operator=(SuperTrap const & rhs)
 
     return(*this);
 }
-
+/*
 void	SuperTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "I am the SuperTrap " << this->_name
@@ -111,3 +130,4 @@ void SuperTrap::introduction(void) const
 	<< "armor_damage_reduction: " << this->_armor_damage_reduction << std::endl
 	<< std::endl;
 }
+*/

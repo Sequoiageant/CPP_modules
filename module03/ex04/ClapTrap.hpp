@@ -27,12 +27,14 @@ public:
 	~ClapTrap(void);
 
 	std::string	getName(void) const;
+	unsigned int	getHP(void) const;
 
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
+	void	introduction(void) const;
 	ClapTrap& operator=(ClapTrap const & rhs);
 };
 

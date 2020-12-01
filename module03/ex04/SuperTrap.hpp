@@ -9,27 +9,27 @@
 class SuperTrap : public FragTrap, public NinjaTrap {
 
 private:
-	/* attributes */
+	using FragTrap::_hit_points;
+	using FragTrap::_max_hit_points;
+	using NinjaTrap::_energy_points;
+	using NinjaTrap::_max_energy_points;
+	using NinjaTrap::_melee_attack_damage;
+	using FragTrap::_ranged_attack_damage;
+	using FragTrap::_armor_damage_reduction;
 
 public:
 	SuperTrap(void);
 	SuperTrap(std::string name);
 	SuperTrap(SuperTrap const & copy);
 	~SuperTrap(void);
-	void	introduction(void) const;
-
-	void	rangedAttack(std::string const & target);
-	void	meleeAttack(std::string const & target);
-
-	void	ninjaShoebox(SuperTrap & clap) const;
-	void	ninjaShoebox(FragTrap & clap) const;
-	void	ninjaShoebox(ScavTrap & clap) const;
-	void	ninjaShoebox(ClapTrap & clap) const;
-
-	void	vaulthunter_dot_exe(std::string const & target);
-
-
 	SuperTrap& operator=(SuperTrap const & rhs);
+
+	using FragTrap::rangedAttack;
+	using NinjaTrap::meleeAttack;
+	using NinjaTrap::ninjaShoebox;
+	using FragTrap::vaulthunter_dot_exe;
+
+	// using FragTrap::getHP;
 };
 
 std::ostream & operator<<(std::ostream & o, SuperTrap const & rhs);

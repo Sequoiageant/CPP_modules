@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 15:02:23 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 09:59:02 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,34 @@
 #include <iostream>
 #include <cstdlib> // rand()
 
-FragTrap::FragTrap() : ClapTrap("no name", 100, 100, 100, 100, 1, 30, 20, 5)
+FragTrap::FragTrap()// : ClapTrap("no name", 100, 100, 100, 100, 1, 30, 20, 5)
 {
 	srand(time(NULL));
+	this->_name = "no name";
+	this->_hit_points = 100;
+	this->_max_hit_points = 100;
+	this->_energy_points = 100;
+	this->_max_energy_points = 100;
+	this->_level = 1;
+	this->_melee_attack_damage = 30;
+	this->_ranged_attack_damage = 20;
+	this->_armor_damage_reduction = 5;
 	std::cout << "FragTrap Default constructor called, " << this->_name
 	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
+FragTrap::FragTrap(std::string name)// : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
 	srand(time(NULL));
+	this->_name = name;
+	this->_hit_points = 100;
+	this->_max_hit_points = 100;
+	this->_energy_points = 100;
+	this->_max_energy_points = 100;
+	this->_level = 1;
+	this->_melee_attack_damage = 30;
+	this->_ranged_attack_damage = 20;
+	this->_armor_damage_reduction = 5;
 	std::cout << "FragTrap Overload constructor called, " << this->_name
 	<< " says: \"MY PECS HAVE PECS\"" << std::endl;
 }
@@ -92,7 +110,7 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 	if (this->_energy_points < 25)
 	{
 		std::cout << "FR4G-TP " << this->_name
-		<< ": not enough Energie to launch a FUNNY ATTACK..." << std::endl;
+		<< ": not enough Energy to launch a FUNNY ATTACK..." << std::endl;
 	}
 	else
 	{

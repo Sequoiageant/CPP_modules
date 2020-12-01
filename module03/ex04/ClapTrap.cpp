@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 13:05:31 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 09:39:39 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,44 @@
 #include <iostream>
 #include <cstdlib> // rand()
 
-ClapTrap::ClapTrap() : _name("no name"), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30), _ranged_attack_damage(20), _armor_damage_reduction(5)
+ClapTrap::ClapTrap()// : _name("no name"), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30), _ranged_attack_damage(20), _armor_damage_reduction(5)
 {
-	// srand(time(NULL));
+	srand(time(NULL));
+	this->_name = "no name";
+	this->_hit_points = 100;
+	this->_max_hit_points = 100;
+	this->_energy_points = 120;
+	this->_max_energy_points = 120;
+	this->_level = 1;
+	this->_melee_attack_damage = 60;
+	this->_ranged_attack_damage = 20;
+	this->_armor_damage_reduction = 5;
 	std::cout << "ClapTrap Default constructor called, " << this->_name
 	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30), _ranged_attack_damage(20), _armor_damage_reduction(5)
+ClapTrap::ClapTrap(std::string name)// : _name(name), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30), _ranged_attack_damage(20), _armor_damage_reduction(5)
 {
 	srand(time(NULL));
+	this->_name = name;
+	this->_hit_points = 100;
+	this->_max_hit_points = 100;
+	this->_energy_points = 120;
+	this->_max_energy_points = 120;
+	this->_level = 1;
+	this->_melee_attack_damage = 60;
+	this->_ranged_attack_damage = 20;
+	this->_armor_damage_reduction = 5;
 	std::cout << "ClapTrap Overload constructor called, " << this->_name
 	<< " says: \"MY PECS HAVE PECS\"" << std::endl;
 }
 
-ClapTrap::	ClapTrap(std::string name, unsigned int hp, unsigned int max_hp, unsigned int ep, unsigned int max_ep, unsigned int level, unsigned int mad, unsigned int rad, unsigned int adr)
+ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int max_hp, unsigned int ep, unsigned int max_ep, unsigned int level, unsigned int mad, unsigned int rad, unsigned int adr)
  : _name(name), _hit_points(hp), _max_hit_points(max_hp), _energy_points(ep), _max_energy_points(max_ep), _level(level), _melee_attack_damage(mad), _ranged_attack_damage(rad), _armor_damage_reduction(adr)
 {
 	srand(time(NULL));
-	std::cout << "ClapTrap Overload constructor called, " << this->_name
-	<< " says: \"MY PECS HAVE PECS\"" << std::endl;
+	// std::cout << "ClapTrap Overload constructor called, " << this->_name
+	// << " says: \"MY PECS HAVE PECS\"" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & copy)
@@ -116,4 +134,24 @@ void	ClapTrap::beRepaired(unsigned int amount)
 std::string	ClapTrap::getName(void) const
 {
 	return this->_name;
+}
+
+unsigned int	ClapTrap::getHP(void) const
+{
+	return this->_hit_points;
+}
+
+void ClapTrap::introduction(void) const
+{
+	std::cout << "I am a SuperTrap, Who am I in details: " << std::endl
+	<< "name: " << this->_name << std::endl
+	<< "hit_points: " << this->_hit_points << std::endl
+	<< "max_hit_points: " << this->_max_hit_points << std::endl
+	<< "energy_points: " << this->_energy_points << std::endl
+	<< "max_energy_points: " << this->_max_energy_points << std::endl
+	<< "level: " << this->_level << std::endl
+	<< "melee_attack_damage: " << this->_melee_attack_damage << std::endl
+	<< "ranged_attack_damage: " << this->_ranged_attack_damage << std::endl
+	<< "armor_damage_reduction: " << this->_armor_damage_reduction << std::endl
+	<< std::endl;
 }
