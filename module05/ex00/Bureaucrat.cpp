@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 18:24:42 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 18:27:42 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,3 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs)
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return o;
 }
-
-/*class Bureaucrat::GradeTooHighException::what const  : public std::exception {
-
-public:
-	virtual const char* what() const trow();
-	{
-		return ("The grade entered is too high !");
-	}
-};
-class GradeTooLowException : public std::exception {
-
-public:
-	virtual const char* what() const trow();
-	{
-		return ("The grade entered is too low !");
-	}
-};*/
