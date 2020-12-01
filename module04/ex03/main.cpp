@@ -6,50 +6,123 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/28 16:51:30 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 11:30:26 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MateriaSource.hpp"
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 
 int main(void)
 {
-	// IMateriaSource* src = new MateriaSource();
-	// src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
+	{
+		std::cout << "------> ORIGNINAL MAIN <------" << std::endl;
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
 
-	ICharacter* moi = new Character("moi");
-	
-	AMateria* tmp1 = new Cure;
-	std::cout << "Cure: " << tmp1 << std::endl;
-	AMateria* tmp2 = new Ice;
-	std::cout << "Ice: " << tmp2 << std::endl;
-	// tmp = src->createMateria("ice");
-	moi->equip(tmp1);
-	// tmp = src->createMateria("cure");
-	moi->equip(tmp2);
+		ICharacter* moi = new Character("moi");
 
-	moi->displayInv();
-	ICharacter* bob = new Character("bob");
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		moi->equip(tmp);
+		tmp = src->createMateria("cure");
+		moi->equip(tmp);
 
-	moi->use(0, *bob);
-	moi->use(1, *bob);
+		moi->displayInv();
+		ICharacter* bob = new Character("bob");
 
-	moi->unequip(0);
-	moi->displayInv();
+		moi->use(0, *bob);
+		moi->use(1, *bob);
 
-	// AMateria* tmp3 = new Ice;
-	// std::cerr << "XP tmp1: " << tmp1->getXP() << std::endl;;
-	// std::cerr << "XP tmp2: " << tmp2->getXP() << std::endl;;
-	// *tmp3 = *tmp1;
-	// moi->equip(tmp3);
-	// moi->displayInv();
+		moi->displayInv();
 
-	delete bob;
-	delete moi;
-	// delete src;
+		delete bob;
+		delete moi;
+		delete src;
+	}
+	{
+		std::cout << std::endl << "------> ASSIGNATION TEST <------" << std::endl;
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
 
+		Character moi("moi");
+		Character moi_cpy("moi_cpy");
+		
+		AMateria* tmp;
+		// Create Ice & equipe moi with ice
+		tmp = src->createMateria("ice");
+		moi.equip(tmp);
+		
+		// Create Cure & equipe moi with Cure
+		tmp = src->createMateria("cure");
+		moi_cpy.equip(tmp);
+
+		// Moi uses ice to increase his XP
+		ICharacter* bob = new Character("bob");
+		moi.use(0, *bob);
+		
+		// Moi_cpy before been a moi copy --> his inventory shows a cure with xp=0
+		moi_cpy.displayInv();
+		
+		moi_cpy = moi;
+
+		// Moi_cpy after been a moi copy --> his inventory shows a ice with xp=10
+		moi_cpy.displayInv();
+
+
+		delete bob;
+		delete src;
+	}	
+	{
+		std::cout << std::endl << "------> COPY TEST <------" << std::endl;
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+
+		Character moi("moi");
+		
+		AMateria* tmp;
+		// Create Ice & equipe moi with ice
+		tmp = src->createMateria("ice");
+		moi.equip(tmp);
+		
+		// Create Cure & equipe moi with Cure
+		tmp = src->createMateria("cure");
+		moi.equip(tmp);
+
+		// Moi uses ice to increase his XP
+		ICharacter* bob = new Character("bob");
+		moi.use(0, *bob);
+
+		moi.displayInv();
+		
+		Character moi_cpy(moi);
+		// moi_cpy should have the same inventory has moi.
+		moi_cpy.displayInv();
+		
+
+		std::cout << std::endl << "------> INVALID TESTS <------" << std::endl;
+		
+		/*Invalide inventory index*/
+		moi.use(42, *bob);
+
+		tmp = src->createMateria("cure");
+		moi.equip(tmp);
+		tmp = src->createMateria("cure");
+		moi.equip(tmp);
+
+		/*Moi's inventory will be full*/
+		tmp = src->createMateria("cure");
+		moi.equip(tmp);
+
+
+		delete tmp;
+		delete bob;
+		delete src;
+	}
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/28 12:23:23 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/11/30 12:26:19 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	Character(std::string const name);
 	Character(Character const & copy);
 	virtual ~Character(void);
-	Character & operator=(Character const & rhs);
+	virtual Character & operator=(Character const & rhs);
 
 	virtual std::string const & getName() const;
 	virtual AMateria*	getInv(int idx) const;

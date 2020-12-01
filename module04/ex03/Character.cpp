@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/28 16:51:15 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 11:18:22 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 
 Character::Character(std::string const name) : _name(name), _inv(), _nbMateria(0)
 {
-	std::cout << "A Character was born" << std::endl;
+	std::cout << "The Character " << this->_name << " was born" << std::endl;
 	return;
 }
 
-Character::Character(Character const & copy)
+Character::Character(Character const & copy) : _name(copy._name), _inv(), _nbMateria(copy._nbMateria)
 {
-	for (int i = 0; i < 4; ++i)
+	/*copy new Materia*/
+	for (int i = 0; i < copy._nbMateria; ++i)
 	{
-		if (copy._inv[i])
-			this->_inv[i] = copy._inv[i]->clone();
-		else
-			this->_inv[i] = NULL;
+		this->_inv[i] = copy._inv[i]->clone();
 	}
 }
 
@@ -47,14 +45,13 @@ Character & Character::operator=(Character const & rhs)
 		delete this->_inv[i];
 		this->_inv[i] = NULL;
 	}
+	this->_nbMateria = 0;
 
 	/*copy new Materia*/
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < rhs._nbMateria; ++i)
 	{
-		if (rhs._inv[i])
-			this->_inv[i] = rhs._inv[i]->clone();
-		else
-			this->_inv[i] = NULL;
+		this->_inv[i] = rhs._inv[i]->clone();
+		this->_nbMateria++;
 	}
 
 	return (*this);
@@ -68,9 +65,14 @@ std::string const & Character::getName(void) const
 
 void Character::equip(AMateria* m)
 {
-	this->_inv[this->_nbMateria] = m;
-	std::cout << "character " << this->_name << " is equipped with " << m->getType() << " in idx " << this->_nbMateria << std::endl;
-	this->_nbMateria++;
+	if (this->_nbMateria < 4)
+	{
+		this->_inv[this->_nbMateria] = m; // OR m->clone();
+		std::cout << "Character " << this->_name << " is equipped with " << m->getType() << " in idx " << this->_nbMateria << std::endl;
+		this->_nbMateria++;
+	}
+	else
+		std::cout << "Character " << this->_name << "'s inventory is full !" << std::endl;
 }
 
 void Character::unequip(int idx)
