@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 19:35:35 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:28:29 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Form::Form(std::string name, int signGrade, int execGrade) :
 _name(name), _ratified(false), _signGrade(signGrade), _execGrade(execGrade)
 {
 	if (signGrade < 1 || execGrade < 1)
-		throw GradeTooHighException();
+		throw Form::GradeTooHighException();
 	else if (signGrade > 150 || execGrade > 150)
-		throw GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(Form const & copy) :

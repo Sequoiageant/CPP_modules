@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 19:23:50 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:26:21 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	Bureaucrat::signForm(Form* form)
 	}
 	catch(const std::exception& e) {
 		std::cout << this->_name << " cannot sign form " << form->getName()
-		<< " because " << e.what() << std::endl;
+		<< " because bureaucrat's " << e.what() << std::endl;
 	}
 }
 

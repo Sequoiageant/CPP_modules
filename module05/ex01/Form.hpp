@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 19:22:40 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:25:49 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ public:
 	public:
 		virtual const char* what() const throw()
 		{
-			return ("The bureaucrat's grade is too high !");
+			return ("grade is too high !");
 		}
 	};
 
@@ -55,7 +55,7 @@ public:
 	public:
 		virtual const char* what() const throw()
 		{
-			return ("The bureaucrat's grade is too low !");
+			return ("grade is too low !");
 		}
 	};
 };

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 19:24:06 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:53:58 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ public:
 	public:
 		virtual const char* what() const throw()
 		{
-			return ("The grade entered is too high !");
+			return ("The bureaucrat's grade is too high !");
 		}
 	};
 	class GradeTooLowException : public std::exception {
@@ -53,7 +53,7 @@ public:
 	public:
 		virtual const char* what() const throw()
 		{
-			return ("The grade entered is too low !");
+			return ("The bureaucrat's grade is too low !");
 		}
 	};
 };
