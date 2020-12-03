@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 12:47:42 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/03 18:10:47 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/03 18:35:10 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,5 @@ public:
 		virtual const char* what() const throw();
 	};
 };
-
-std::ostream & operator<<(std::ostream & o, OfficeBlock const & rhs);
 
 #endif // OFFICE_BLOCK_HPP

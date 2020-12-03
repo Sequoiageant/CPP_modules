@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 12:47:42 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/03 18:22:31 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/03 18:35:04 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,3 @@ const char* OfficeBlock::NullPointerException::what() const throw()
 {
 	return (this->_msg.c_str());
 }
-
-
-// std::ostream & operator<<(std::ostream & o, OfficeBlock const & rhs)
-// {
-
-// }
