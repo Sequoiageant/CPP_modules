@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 09:25:49 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:25:26 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
 	int				  getSignGrade(void) const;
 	int				  getExecGrade(void) const;
 
-	void			  beSigned(Bureaucrat *);
+	void			  beSigned(Bureaucrat const &);
 
 	Form & operator=(Form const & rhs);
 

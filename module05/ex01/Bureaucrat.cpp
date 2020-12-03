@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 09:26:21 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:25:41 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Bureaucrat::decrementGrade(void)
 void	Bureaucrat::signForm(Form* form)
 {
 	try {
-			form->beSigned(this);
+			form->beSigned(*this);
 			std::cout << this->_name << " signs form " << form->getName() << std::endl;
 	}
 	catch(const std::exception& e) {

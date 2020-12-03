@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 09:28:29 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:27:47 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	 	Form::getExecGrade(void) const
 	return this->_execGrade;
 }
 
-void		Form::beSigned(Bureaucrat* bureaucrat)
+void	Form::beSigned(Bureaucrat const & bureaucrat)
 {
-	if (bureaucrat->getGrade() > this->_signGrade)
+	if (bureaucrat.getGrade() > this->_signGrade)
 		throw Form::GradeTooLowException();
 	else
 		this->_ratified = true;
@@ -70,9 +70,12 @@ Form & Form::operator=(Form const & rhs)
 std::ostream & operator<<(std::ostream & o, Form const & rhs)
 {
 	o << "Form " << rhs.getName()
-	<< ": minSignGrade - " << rhs.getSignGrade()
-	<< ", minExecGrade - " << rhs.getExecGrade()
-	<< ", ratified - " << rhs.getRatification()
-	<< std::endl;
+	<< " (SignGrade " << rhs.getSignGrade()
+	<< ", ExecGrade " << rhs.getExecGrade();
+
+	if (rhs.getRatification())
+		o << ", Signed)" << std::endl;
+	else
+		o << ", Unsigned)" << std::endl;
 	return o;
 }
