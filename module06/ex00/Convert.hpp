@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:18:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 18:39:01 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/04 20:05:27 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ private:
 	void	_convertFromChar(void);
 	void	_convertFromDouble(void);
 	void	_convertFromFloat(void);
+	// void	_convertError(void);
 
 	Convert(void);
 

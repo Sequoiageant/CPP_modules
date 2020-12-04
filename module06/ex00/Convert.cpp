@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 19:28:21 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/04 20:09:59 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Convert::Convert(const char *value) : _value(std::string(value))
 	this->_intStr = "impossible";
 	this->_floatStr = "nanf";
 	this->_doubleStr = "nan";
-
 }
 
 Convert::Convert(Convert const & copy) :  _value(copy._value)
@@ -169,7 +168,23 @@ void	Convert::_convertFromInt(void)
 
 void	Convert::_convertFromChar(void)
 {
+	std::ostringstream o;
+	std::ostringstream o1;
+	std::ostringstream o2;
 
+	this->_charStr = "'" + this->_value + "'";
+
+	this->_intVal = static_cast<int>(this->_charVal);
+	o << this->_intVal;
+	this->_intStr = o.str();
+
+	this->_floatVal = static_cast<float>(this->_charVal);
+	o1 << this->_floatVal << ".0f";
+	this->_floatStr = o1.str();
+
+	this->_doubleVal = static_cast<double>(this->_charVal);
+	o2 << this->_doubleVal << ".0";
+	this->_doubleStr = o2.str();
 }
 
 void	Convert::_convertFromDouble(void)
@@ -182,15 +197,23 @@ void	Convert::_convertFromFloat(void)
 
 }
 
+/*void	Convert::_convertError(void)
+{
+	this->_charStr = "impossible";
+	this->_intStr = "impossible";
+	this->_floatStr = "nanf";
+	this->_doubleStr = "nan";
+}
+*/
 void	Convert::doConversion(void)
 {
 	char type;
 	void *res;
-	static char const types[4] = {'i', 'c', 'd', 'f'};
-	void (Convert::*conv[4])(void) = {&Convert::_convertFromInt, &Convert::_convertFromChar, &Convert::_convertFromDouble, &Convert::_convertFromFloat};
+	static char const types[4] = {'i', 'c', 'd', 'f'};//, 'n'};
+	void (Convert::*conv[4])(void) = {&Convert::_convertFromInt, &Convert::_convertFromChar, &Convert::_convertFromDouble, &Convert::_convertFromFloat};//, &Convert::_convertError};
  
 	type = this->_detectType();
-	this->_convertFromInt();
+	// this->_convertFromInt();
 
 	for (int i = 0; i < 4; ++i)
 	{
