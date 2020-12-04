@@ -6,14 +6,11 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/03 18:56:39 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/04 10:00:12 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
 #include "OfficeBlock.hpp"
 
