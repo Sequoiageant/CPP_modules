@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:18:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 16:53:31 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/04 18:39:01 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ private:
 	bool	_isInt(std::string str);
 	bool	_isChar(std::string str);
 	bool	_isDouble(std::string str);
-	bool	_is_Float(std::string str);
+	bool	_isFloat(std::string str);
+	void	_convertFromInt(void);
+	void	_convertFromChar(void);
+	void	_convertFromDouble(void);
+	void	_convertFromFloat(void);
 
 	Convert(void);
 
