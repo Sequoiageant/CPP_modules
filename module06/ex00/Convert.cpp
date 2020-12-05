@@ -6,26 +6,27 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 20:09:59 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/05 17:07:28 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 #include <sstream>
+#include <cstdlib>
 
-Convert::Convert(const char *value) : _value(std::string(value))
+Convert::Convert(const char *value) : _cValue(value), _value(std::string(value))
 {
 	this->_charVal = '*';
 	this->_intVal = 0;
-	this->_floatVal = 0;
-	this->_doubleVal = 0;
+	this->_floatVal = 0.0f;
+	this->_doubleVal = 0.0;
 	this->_charStr = "impossible";
 	this->_intStr = "impossible";
 	this->_floatStr = "nanf";
 	this->_doubleStr = "nan";
 }
 
-Convert::Convert(Convert const & copy) :  _value(copy._value)
+Convert::Convert(Convert const & copy)// :  _cValue(copy._cValue), _value(copy._value)
 {
 	*this = copy;
 }
@@ -116,7 +117,7 @@ char	Convert::_detectType(void)
 	// C'est moche ! Trouver un autre moyen que if/else if/else !?
 	if (this->_isInt(this->_value))
 	{
-		this->_intVal = std::stoi(this->_value);
+		this->_intVal = atoi(this->_cValue);
 		return ('i');
 	}
 	else if (this->_isChar(this->_value))
@@ -126,12 +127,12 @@ char	Convert::_detectType(void)
 	}
 	else if (this->_isDouble(this->_value))
 	{
-		this->_intVal = std::stod(this->_value, NULL);
+		this->_doubleVal = atof(this->_cValue);
 		return ('d');
 	}
 	else if (this->_isFloat(this->_value))
 	{
-		this->_intVal = std::stof(this->_value);
+		this->_floatVal = atof(this->_cValue);
 		return ('f');
 	}
 	else
@@ -189,12 +190,58 @@ void	Convert::_convertFromChar(void)
 
 void	Convert::_convertFromDouble(void)
 {
+	std::ostringstream o;
+	std::ostringstream o1;
+	std::ostringstream o2;
+	std::ostringstream o3;
 
+	o << this->_doubleVal;
+	this->_doubleStr = o.str();
+
+	this->_floatVal = static_cast<float>(this->_doubleVal);
+	o1 << this->_floatVal << "f";
+	this->_floatStr = o1.str();
+
+	this->_intVal = static_cast<int>(this->_doubleVal);
+	o2 << this->_intVal;
+	this->_intStr = o2.str();
+
+	if (!isprint(this->_intVal))
+		this->_charStr = "Non displayable";
+	else
+	{
+		this->_charVal = static_cast<char>(this->_doubleVal);;
+		o3 << "'" << this->_charVal << "'";
+		this->_charStr = o3.str();
+	}
 }
 
 void	Convert::_convertFromFloat(void)
 {
+	std::ostringstream o;
+	std::ostringstream o1;
+	std::ostringstream o2;
+	std::ostringstream o3;
 
+	o << this->_floatVal << "f";
+	this->_floatStr = o.str();
+
+	this->_doubleVal = static_cast<double>(this->_floatVal);
+	o1 << this->_doubleVal;
+	this->_doubleStr = o1.str();
+
+	this->_intVal = static_cast<int>(this->_floatVal);
+	o2 << this->_intVal;
+	this->_intStr = o2.str();
+
+	if (!isprint(this->_intVal))
+		this->_charStr = "Non displayable";
+	else
+	{
+		this->_charVal = static_cast<char>(this->_floatVal);;
+		o3 << "'" << this->_charVal << "'";
+		this->_charStr = o3.str();
+	}
 }
 
 /*void	Convert::_convertError(void)
@@ -208,7 +255,6 @@ void	Convert::_convertFromFloat(void)
 void	Convert::doConversion(void)
 {
 	char type;
-	void *res;
 	static char const types[4] = {'i', 'c', 'd', 'f'};//, 'n'};
 	void (Convert::*conv[4])(void) = {&Convert::_convertFromInt, &Convert::_convertFromChar, &Convert::_convertFromDouble, &Convert::_convertFromFloat};//, &Convert::_convertError};
  

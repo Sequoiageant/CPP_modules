@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:18:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 20:05:27 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/05 16:29:51 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Convert {
 
 private:
+	const char*		_cValue;
 	std::string 	_value;
 	char			_charVal;
 	int				_intVal;
