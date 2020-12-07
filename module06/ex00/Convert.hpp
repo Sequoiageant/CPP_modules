@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:18:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 15:12:14 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/07 18:32:52 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@
 class Convert {
 
 private:
-	const char*		_cValue;
 	std::string 	_value;
-	double 			_rawValue;
-	char			_charVal;
-	int				_intVal;
-	float			_floatVal;
-	double			_doubleVal;
-	std::string		_charStr;
-	std::string		_intStr;
-	std::string		_floatStr;
-	std::string		_doubleStr;
-	int				_precision;
+	char				_charVal;
+	int					_intVal;
+	float				_floatVal;
+	double				_doubleVal;
+	std::string			_charStr;
+	std::string			_intStr;
+	std::string			_floatStr;
+	std::string			_doubleStr;
+	int					_precision;
 
 	char	_detectType(void);
 	bool	_isInt(std::string str);

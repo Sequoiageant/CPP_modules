@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 15:35:16 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/07 19:36:16 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 // #include <cctype>
 
 
-Convert::Convert(const char *value) : _cValue(value), _value(std::string(value))
+Convert::Convert(const char *value) : _value(std::string(value))
 {
-	this->_rawValue = strtod(this->_cValue, NULL);
 	this->_charVal = '*';
 	this->_intVal = 0;
 	this->_floatVal = 0.0f;
@@ -29,7 +28,7 @@ Convert::Convert(const char *value) : _cValue(value), _value(std::string(value))
 	this->_intStr = "impossible";
 	this->_floatStr = "nanf";
 	this->_doubleStr = "nan";
-	this->_precision = 1;
+	this->_precision = this->_getPrecision(this->_value);
 }
 
 Convert::Convert(Convert const & copy)// :  _cValue(copy._cValue), _value(copy._value)
@@ -50,11 +49,14 @@ Convert::~Convert(void)
 int		Convert::_getPrecision(std::string str)
 {
 	int 	i = 0;
-	int count = 1;
+	int count = 0;
+
+	if (str.size() == 1 && str[0] == '0')
+		return (1);
 
 	while(str[i] != '.')
 		i++;
-	while(std::isdigit(str[i]))
+	while(std::isdigit(str[++i]))
 		count++;
 	return (count);
 }
@@ -126,38 +128,37 @@ bool	Convert::_isFloat(std::string str)
 
 char	Convert::_detectType(void)
 {
+
+	std::stringstream	ss;
+	char				ret;
 	// C'est moche ! Trouver un autre moyen que if/else if/else !?
+	ss << this->_value;
 	if (this->_isInt(this->_value))
 	{
-		if (this->_rawValue >= std::numeric_limits<int>::min() && this->_rawValue <= std::numeric_limits<int>::max() )
-		{
-			this->_intVal = atoi(this->_cValue);
-			return ('i');
-		}
+		ss >> this->_intVal;
+		ret = 'i';
 	}
 	else if (this->_isChar(this->_value))
 	{
 		this->_charVal = this->_value[0];
-		return ('c');
+		ret = 'c';
 	}
 	else if (this->_isDouble(this->_value))
 	{
-		this->_doubleVal = strtod(this->_cValue, NULL);
-		this->_precision = this->_getPrecision(this->_value);
-		return ('d');
+		ss >> this->_doubleVal;
+		ret = 'd';
 	}
 	else if (this->_isFloat(this->_value))
 	{
-		if (this->_rawValue >= std::numeric_limits<float>::min() && this->_rawValue <= std::numeric_limits<float>::max() )
-		{
-			this->_floatVal = this->_rawValue;
-			this->_precision = this->_getPrecision(this->_value);
-			return ('f');	
-		}
+		ss >> this->_floatVal;
+		ret = 'f';
 	}
 	else
-		return ('n');
-	return ('o');
+		ret = 'n';
+
+	if (ss.fail())
+		return ('o');
+	return (ret);
 }
 
 void	Convert::_convertFromInt(void)
@@ -220,14 +221,19 @@ void	Convert::_convertFromDouble(void)
 	o << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o.str();
 
-	this->_floatVal = static_cast<float>(this->_doubleVal);
-	o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
-	this->_floatStr = o1.str();
+	if (this->_doubleVal >= std::numeric_limits<float>::min() && this->_doubleVal <= std::numeric_limits<float>::max())
+	{
+		this->_floatVal = static_cast<float>(this->_doubleVal);
+		o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
+		this->_floatStr = o1.str();		
+	}
 
-	this->_intVal = static_cast<int>(this->_doubleVal);
-	o2 << this->_intVal;
-	this->_intStr = o2.str();
-
+	if (this->_doubleVal >= std::numeric_limits<int>::min() && this->_doubleVal <= std::numeric_limits<int>::max())
+	{
+		this->_intVal = static_cast<int>(this->_doubleVal);
+		o2 << this->_intVal;
+		this->_intStr = o2.str();
+	}
 	if (!(this->_intVal >= 32 && this->_intVal < 127))
 		this->_charStr = "Non displayable";
 	else
@@ -251,10 +257,13 @@ void	Convert::_convertFromFloat(void)
 	this->_doubleVal = static_cast<double>(this->_floatVal);
 	o1 << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o1.str();
-
-	this->_intVal = static_cast<int>(this->_floatVal);
-	o2 << this->_intVal;
-	this->_intStr = o2.str();
+	
+	if (this->_floatVal >= std::numeric_limits<int>::min() && this->_floatVal <= std::numeric_limits<int>::max())
+	{
+		this->_intVal = static_cast<int>(this->_floatVal);
+		o2 << this->_intVal;
+		this->_intStr = o2.str();
+	}
 
 	if (!(this->_intVal >= 32 && this->_intVal < 127))
 		this->_charStr = "Non displayable";
@@ -290,7 +299,6 @@ void	Convert::doConversion(void)
 	void (Convert::*conv[5])(void) = {&Convert::_convertFromInt, &Convert::_convertFromChar, &Convert::_convertFromDouble, &Convert::_convertFromFloat, &Convert::_convertError};
 
 	type = this->_detectType();
-	// this->_convertFromInt();
 
 	for (int i = 0; i < 5; ++i)
 	{
@@ -298,9 +306,10 @@ void	Convert::doConversion(void)
 			(this->*conv[i])();
 	}
 
-	std::cout << "type: " << type << std:: endl;
-	std::cout << "_precision: " << this->_precision << std:: endl;
 	std::cout << "Input String: " << this->_value << std:: endl;
+	std::cout << "type: " << type << std:: endl;
+	std::cout << "precision: " << this->_precision << std:: endl << std:: endl;
+
 	std::cout << "char: " << this->_charStr << std:: endl;
 	std::cout << "int: " << this->_intStr << std:: endl;
 	std::cout << "float: " << this->_floatStr << std:: endl;
