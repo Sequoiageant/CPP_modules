@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 13:43:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 10:40:59 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/07 11:51:13 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,12 @@ int main(void)
 
 	std::cout << s2 << std::endl;
 	std::cout << at << std::endl;
+
+	int max = 32;
+	if (!(max >= 32 && max < 127))
+		std::cout << " non displayable" << std::endl;
+	else
+		std::cout << "'" << static_cast<char>(max) << "'" << std::endl;
 
 	 // std::cout << std::fixed << std::setprecision(3) << dd << std::endl;
 	 // std::cout << std::fixed << std::setprecision(3) << static_cast<float>(dd) << std::endl;

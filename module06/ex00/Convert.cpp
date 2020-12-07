@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 11:07:42 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/07 15:35:16 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 #include <iomanip>
 #include <sstream>
 #include <cstdlib>
-#include <climits>
+#include <limits>
+// #include <cctype>
 
 
 Convert::Convert(const char *value) : _cValue(value), _value(std::string(value))
 {
+	this->_rawValue = strtod(this->_cValue, NULL);
 	this->_charVal = '*';
 	this->_intVal = 0;
 	this->_floatVal = 0.0f;
@@ -27,7 +29,7 @@ Convert::Convert(const char *value) : _cValue(value), _value(std::string(value))
 	this->_intStr = "impossible";
 	this->_floatStr = "nanf";
 	this->_doubleStr = "nan";
-	this->_precision = 0;
+	this->_precision = 1;
 }
 
 Convert::Convert(Convert const & copy)// :  _cValue(copy._cValue), _value(copy._value)
@@ -48,11 +50,11 @@ Convert::~Convert(void)
 int		Convert::_getPrecision(std::string str)
 {
 	int 	i = 0;
-	int count = 0;
+	int count = 1;
 
 	while(str[i] != '.')
 		i++;
-	while(std::isdigit(str[++i]))
+	while(std::isdigit(str[i]))
 		count++;
 	return (count);
 }
@@ -127,8 +129,11 @@ char	Convert::_detectType(void)
 	// C'est moche ! Trouver un autre moyen que if/else if/else !?
 	if (this->_isInt(this->_value))
 	{
-		this->_intVal = atoi(this->_cValue);
-		return ('i');
+		if (this->_rawValue >= std::numeric_limits<int>::min() && this->_rawValue <= std::numeric_limits<int>::max() )
+		{
+			this->_intVal = atoi(this->_cValue);
+			return ('i');
+		}
 	}
 	else if (this->_isChar(this->_value))
 	{
@@ -137,18 +142,22 @@ char	Convert::_detectType(void)
 	}
 	else if (this->_isDouble(this->_value))
 	{
-		this->_doubleVal = atof(this->_cValue);
+		this->_doubleVal = strtod(this->_cValue, NULL);
 		this->_precision = this->_getPrecision(this->_value);
 		return ('d');
 	}
 	else if (this->_isFloat(this->_value))
 	{
-		this->_floatVal = atof(this->_cValue);
-		this->_precision = this->_getPrecision(this->_value);
-		return ('f');
+		if (this->_rawValue >= std::numeric_limits<float>::min() && this->_rawValue <= std::numeric_limits<float>::max() )
+		{
+			this->_floatVal = this->_rawValue;
+			this->_precision = this->_getPrecision(this->_value);
+			return ('f');	
+		}
 	}
 	else
 		return ('n');
+	return ('o');
 }
 
 void	Convert::_convertFromInt(void)
@@ -158,7 +167,8 @@ void	Convert::_convertFromInt(void)
 	std::ostringstream o2;
 	std::ostringstream o3;
 
-	if (!isprint(this->_intVal))
+
+	if (!(this->_intVal >= 32 && this->_intVal < 127))
 		this->_charStr = "Non displayable";
 	else
 	{
@@ -171,11 +181,11 @@ void	Convert::_convertFromInt(void)
 	this->_intStr = o.str();
 
 	this->_floatVal = static_cast<float>(this->_intVal);
-	o1 << this->_floatVal << ".0f";
+	o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
 	this->_floatStr = o1.str();
 
 	this->_doubleVal = static_cast<double>(this->_intVal);
-	o2 << this->_doubleVal << ".0";
+	o2 << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o2.str();
 }
 
@@ -192,11 +202,11 @@ void	Convert::_convertFromChar(void)
 	this->_intStr = o.str();
 
 	this->_floatVal = static_cast<float>(this->_charVal);
-	o1 << this->_floatVal << ".0f";
+	o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
 	this->_floatStr = o1.str();
 
 	this->_doubleVal = static_cast<double>(this->_charVal);
-	o2 << this->_doubleVal << ".0";
+	o2 << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o2.str();
 }
 
@@ -218,7 +228,7 @@ void	Convert::_convertFromDouble(void)
 	o2 << this->_intVal;
 	this->_intStr = o2.str();
 
-	if (!isprint(this->_intVal))
+	if (!(this->_intVal >= 32 && this->_intVal < 127))
 		this->_charStr = "Non displayable";
 	else
 	{
@@ -246,7 +256,7 @@ void	Convert::_convertFromFloat(void)
 	o2 << this->_intVal;
 	this->_intStr = o2.str();
 
-	if (!isprint(this->_intVal))
+	if (!(this->_intVal >= 32 && this->_intVal < 127))
 		this->_charStr = "Non displayable";
 	else
 	{
@@ -258,11 +268,6 @@ void	Convert::_convertFromFloat(void)
 
 void	Convert::_convertError(void)
 {
-	std::ostringstream o;
-	std::ostringstream o1;
-	std::ostringstream o2;
-	
-
 	if (this->_value == "-inf" || this->_value == "+inf" || this->_value == "-inff" || this->_value == "+inff")
 	{
 		if (this->_value[0] == '-')
@@ -283,7 +288,7 @@ void	Convert::doConversion(void)
 	char type;
 	static char const types[5] = {'i', 'c', 'd', 'f', 'n'};
 	void (Convert::*conv[5])(void) = {&Convert::_convertFromInt, &Convert::_convertFromChar, &Convert::_convertFromDouble, &Convert::_convertFromFloat, &Convert::_convertError};
- 
+
 	type = this->_detectType();
 	// this->_convertFromInt();
 
