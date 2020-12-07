@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:18:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/05 16:29:51 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/07 11:02:26 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,19 @@ private:
 	std::string		_intStr;
 	std::string		_floatStr;
 	std::string		_doubleStr;
+	int				_precision;
 
-	bool	_parseString(void);
 	char	_detectType(void);
 	bool	_isInt(std::string str);
 	bool	_isChar(std::string str);
 	bool	_isDouble(std::string str);
 	bool	_isFloat(std::string str);
+	int		_getPrecision(std::string str);
 	void	_convertFromInt(void);
 	void	_convertFromChar(void);
 	void	_convertFromDouble(void);
 	void	_convertFromFloat(void);
-	// void	_convertError(void);
+	void	_convertError(void);
 
 	Convert(void);
 

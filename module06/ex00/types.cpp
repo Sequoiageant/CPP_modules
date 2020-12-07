@@ -6,13 +6,16 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 13:43:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 19:20:59 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/07 10:40:59 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <iomanip>
+#include <bitset>
+#include <cstdlib>
 
 std::string convertFloat(float value) {
   std::ostringstream o;
@@ -25,6 +28,40 @@ std::string convertDouble(double value) {
   if (!(o << value))
     return "";
   return o.str();
+}
+
+void	print_bin(int nb)
+{
+	int	i;
+
+	i = 0;
+	printf("flag : [");
+	while (i < 32)
+	{
+		if (i != 0 && i % 8 == 0)
+			printf(".");
+		if (nb & (1 << (31 - i)))
+			printf("1");
+		else
+			printf("0");
+		i++;
+	}
+	printf("]\n");
+}
+
+void printBits(size_t const size, void const * const ptr)
+{
+    unsigned char *b = (unsigned char*) ptr;
+    unsigned char byte;
+    int i, j;
+    
+    for (i = size-1; i >= 0; i--) {
+        for (j = 7; j >= 0; j--) {
+            byte = (b[i] >> j) & 1;
+            printf("%u", byte);
+            // std::cout << byte << " ";
+        }
+    }
 }
 
 int main(void)
@@ -61,5 +98,23 @@ int main(void)
 	std::cout << "Convert Double:" << convertDouble(42.42) <<std::endl;
 	std::cout << "Convert Float:" << convertFloat(42.42f) <<std::endl;
 
+	std::cout << "Print precision with null decimal " << std::endl;
+
+	float fff = 42.0f;
+	std::cout << fff << " bitset:" << std::endl;
+	std::cout << std::bitset<32>(fff)  << std::endl;
+	printBits(sizeof(fff), &fff);
+	std::cout << std::endl;
+
+
+	const char *s2 = "2147483649";
+	int at = atoi(s2);
+
+	std::cout << s2 << std::endl;
+	std::cout << at << std::endl;
+
+	 // std::cout << std::fixed << std::setprecision(3) << dd << std::endl;
+	 // std::cout << std::fixed << std::setprecision(3) << static_cast<float>(dd) << std::endl;
+	// std::cout << "Float with precision " << dd << std::endl;
 	return 0;
 }
