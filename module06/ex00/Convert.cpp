@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 19:36:16 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/08 10:17:36 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <limits>
+#include <cfloat>
 // #include <cctype>
 
 
@@ -221,11 +222,11 @@ void	Convert::_convertFromDouble(void)
 	o << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o.str();
 
-	if (this->_doubleVal >= std::numeric_limits<float>::min() && this->_doubleVal <= std::numeric_limits<float>::max())
+	if ((this->_doubleVal >= FLT_MIN && this->_doubleVal <= FLT_MAX) || this->_doubleVal == 0.0)
 	{
 		this->_floatVal = static_cast<float>(this->_doubleVal);
 		o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
-		this->_floatStr = o1.str();		
+		this->_floatStr = o1.str();
 	}
 
 	if (this->_doubleVal >= std::numeric_limits<int>::min() && this->_doubleVal <= std::numeric_limits<int>::max())
