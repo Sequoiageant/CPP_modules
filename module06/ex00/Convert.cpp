@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/08 10:17:36 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/08 14:11:21 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 #include <sstream>
 #include <cstdlib>
 #include <limits>
+#include <climits>
 #include <cfloat>
 // #include <cctype>
 
 
 Convert::Convert(const char *value) : _value(std::string(value))
 {
+
 	this->_charVal = '*';
 	this->_intVal = 0;
 	this->_floatVal = 0.0f;
@@ -52,14 +54,11 @@ int		Convert::_getPrecision(std::string str)
 	int 	i = 0;
 	int count = 0;
 
-	if (str.size() == 1 && str[0] == '0')
-		return (1);
-
-	while(str[i] != '.')
+	while(str[i] && str[i] != '.')
 		i++;
 	while(std::isdigit(str[++i]))
 		count++;
-	return (count);
+	return (count == 0 ? 1 : count);
 }
 
 bool	Convert::_isInt(std::string str)
@@ -81,7 +80,7 @@ bool	Convert::_isChar(std::string str)
 {
 	if (str.size() == 1)
 	{
-		if (std::isalpha(str[0]))
+		if (str[0] >= 32 && str[0] < 127)
 			return (true);
 	}
 	return (false);
@@ -222,12 +221,10 @@ void	Convert::_convertFromDouble(void)
 	o << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o.str();
 
-	if ((this->_doubleVal >= FLT_MIN && this->_doubleVal <= FLT_MAX) || this->_doubleVal == 0.0)
-	{
-		this->_floatVal = static_cast<float>(this->_doubleVal);
-		o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
-		this->_floatStr = o1.str();
-	}
+
+	this->_floatVal = static_cast<float>(this->_doubleVal);
+	o1 << std::fixed << std::setprecision(this->_precision) << this->_floatVal << "f";
+	this->_floatStr = o1.str();
 
 	if (this->_doubleVal >= std::numeric_limits<int>::min() && this->_doubleVal <= std::numeric_limits<int>::max())
 	{
@@ -236,7 +233,7 @@ void	Convert::_convertFromDouble(void)
 		this->_intStr = o2.str();
 	}
 	if (!(this->_intVal >= 32 && this->_intVal < 127))
-		this->_charStr = "Non displayable";
+		this->_charStr = "impossible";
 	else
 	{
 		this->_charVal = static_cast<char>(this->_doubleVal);;
@@ -259,7 +256,10 @@ void	Convert::_convertFromFloat(void)
 	o1 << std::fixed << std::setprecision(this->_precision) << this->_doubleVal;
 	this->_doubleStr = o1.str();
 	
-	if (this->_floatVal >= std::numeric_limits<int>::min() && this->_floatVal <= std::numeric_limits<int>::max())
+	// if (this->_floatVal >= -2147483583.0f && this->_floatVal <= 2147483583.0f)
+	if (this->_floatVal <= std::numeric_limits<int>::min() || this->_floatVal >= std::numeric_limits<int>::max())
+		this->_intStr = "impossible";
+	else
 	{
 		this->_intVal = static_cast<int>(this->_floatVal);
 		o2 << this->_intVal;
@@ -267,7 +267,7 @@ void	Convert::_convertFromFloat(void)
 	}
 
 	if (!(this->_intVal >= 32 && this->_intVal < 127))
-		this->_charStr = "Non displayable";
+		this->_charStr = "impossible";
 	else
 	{
 		this->_charVal = static_cast<char>(this->_floatVal);;

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 13:43:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 11:51:13 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/08 11:13:17 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <bitset>
 #include <cstdlib>
+#include <limits>
 
 std::string convertFloat(float value) {
   std::ostringstream o;
@@ -89,7 +90,7 @@ int main(void)
 	std::cout << "Double . " << dd << std::endl;
 
 	float ff = 45.f;
-	std::cout << "Float .f " << dd << std::endl;
+	std::cout << "Float .f " << ff << std::endl;
 
 	char s[1]; s[0] = 'a';
 	char sc = s[0];
@@ -118,6 +119,10 @@ int main(void)
 		std::cout << " non displayable" << std::endl;
 	else
 		std::cout << "'" << static_cast<char>(max) << "'" << std::endl;
+
+
+	std::cout << "Type of numeric_limits<int>: " << typeid(std::numeric_limits<int>::min()).name() << std::endl;
+	std::cout << "Type of numeric_limits<float>: " << typeid(std::numeric_limits<float>::min()).name() << std::endl;
 
 	 // std::cout << std::fixed << std::setprecision(3) << dd << std::endl;
 	 // std::cout << std::fixed << std::setprecision(3) << static_cast<float>(dd) << std::endl;
