@@ -6,11 +6,11 @@
 #    By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 10:39:10 by julnolle          #+#    #+#              #
-#    Updated: 2020/12/07 15:46:40 by julnolle         ###   ########.fr        #
+#    Updated: 2020/12/08 17:45:31 by julnolle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serial
+NAME = serialize
 
 # ---------------- CC ---------------- #
 
@@ -27,8 +27,7 @@ CFLAGS +=	-std=c++98
 
 # ---------------- SRC --------------- #
 
-SRCS = Serial.cpp
-SRCS += main.cpp
+SRCS = Serialize.cpp
 
 vpath %.cpp ./
 
