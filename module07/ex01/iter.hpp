@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 18:22:13 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/09 18:44:41 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/10 12:37:04 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,35 @@
 # define ITER_HPP
 
 template<typename T>
-void	iter(T *tab, int size, void *f(T))
+void ft_switch(T & s)
 {
+	std::size_t pos = 0;
 
+    while ((pos = s.find('r')) != T::npos)
+    {
+        s.replace(pos, 1, "~");
+    }
+}
+
+template<typename T>
+void ft_increment(T & elem)
+{
+	elem++;
+}
+
+template<typename T>
+void ft_print(T & elem)
+{
+	std::cout << elem << std::endl;
+}
+
+template<typename T>
+void	iter(T *tab, int size, void f(T &))
+{
+	for (int i = 0; i < size; ++i)
+	{
+		f(tab[i]);
+	}
 }
 
 #endif // ITER_HPP

@@ -6,11 +6,11 @@
 #    By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 10:39:10 by julnolle          #+#    #+#              #
-#    Updated: 2020/12/09 17:12:48 by julnolle         ###   ########.fr        #
+#    Updated: 2020/12/10 12:26:32 by julnolle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = whatever
+NAME = iter
 
 # ---------------- CC ---------------- #
 
@@ -28,6 +28,7 @@ CFLAGS +=	-std=c++98
 # ---------------- SRC --------------- #
 
 SRCS = main.cpp
+SRCS += Fixed.cpp
 
 vpath %.cpp ./
 
