@@ -16,20 +16,21 @@ private:
 	using NinjaTrap::_melee_attack_damage;
 	using FragTrap::_ranged_attack_damage;
 	using FragTrap::_armor_damage_reduction;
+	SuperTrap(void);
 
 public:
-	SuperTrap(void);
 	SuperTrap(std::string name);
 	SuperTrap(SuperTrap const & copy);
 	~SuperTrap(void);
 	SuperTrap& operator=(SuperTrap const & rhs);
+
+	void introduction(void) const;
 
 	using FragTrap::rangedAttack;
 	using NinjaTrap::meleeAttack;
 	using NinjaTrap::ninjaShoebox;
 	using FragTrap::vaulthunter_dot_exe;
 
-	// using FragTrap::getHP;
 };
 
 std::ostream & operator<<(std::ostream & o, SuperTrap const & rhs);

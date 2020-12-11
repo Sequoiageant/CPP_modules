@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 16:14:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/10 19:02:04 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 13:22:15 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ private:
 	unsigned int	_melee_attack_damage;
 	unsigned int	_ranged_attack_damage;
 	unsigned int	_armor_damage_reduction;
+	FragTrap(void);
 
 public:
-	FragTrap(void);
 	FragTrap(std::string name);
 	FragTrap(FragTrap const & copy);
 	~FragTrap(void);

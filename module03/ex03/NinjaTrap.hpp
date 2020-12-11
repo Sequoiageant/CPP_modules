@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 11:50:58 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 12:34:20 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:30:04 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 class NinjaTrap : public ClapTrap {
 
 private:
+	NinjaTrap(void);
 
 public:
-	NinjaTrap(void);
 	NinjaTrap(std::string name);
 	NinjaTrap(NinjaTrap const & copy);
 	~NinjaTrap(void);

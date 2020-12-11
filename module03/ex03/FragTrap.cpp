@@ -6,20 +6,13 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 12:24:22 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:29:46 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 #include <cstdlib> // rand()
-
-FragTrap::FragTrap() : ClapTrap("no name", 100, 100, 100, 100, 1, 30, 20, 5)
-{
-	srand(time(NULL));
-	std::cout << "FragTrap Default constructor called, " << this->_name
-	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
-}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {

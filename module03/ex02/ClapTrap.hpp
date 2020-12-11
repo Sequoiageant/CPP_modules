@@ -34,6 +34,4 @@ public:
 	ClapTrap& operator=(ClapTrap const & rhs);
 };
 
-std::ostream & operator<<(std::ostream & o, ClapTrap const & rhs);
-
 #endif // CLAP_TRAP_HPP

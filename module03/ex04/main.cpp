@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 10:02:18 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:43:45 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,13 @@ int main(void)
 		
 		Super.introduction();
 		
-		std::cout << "SuperTrap ranger & melee attacks:" << std::endl;
+		std::cout << "SuperTrap range & melee attacks:" << std::endl;
 		Super.rangedAttack("POOR GUYYY");
 		Super.meleeAttack("POOR GUYYY");
 		std::cout << std::endl;
 		std::cout << "SuperTrap ninjaShoebox:" << std::endl;
 		Super.ninjaShoebox(Maya);
 		Super.ninjaShoebox(Zer0);
-		// Super.ninjaShoebox(Super);
 		Super.ninjaShoebox(Father);
 		std::cout << "SuperTrap vaulthunter_dot_exe:" << std::endl;
 		Super.vaulthunter_dot_exe("POOR GUYYY");

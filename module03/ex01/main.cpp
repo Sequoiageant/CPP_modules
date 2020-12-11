@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 16:58:54 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 13:57:21 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main(void)
 		Maya.vaulthunter_dot_exe("POOR GUY 4");
 	}
 	{	
+		std::cout << std::endl;
 		ScavTrap Zer0("Bob");
 
 		std::cout << std::endl;

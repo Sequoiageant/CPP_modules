@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:55:52 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 18:16:54 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:30:12 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class ScavTrap : public ClapTrap {
 
 private:
+	ScavTrap(void);
 
 public:
-	ScavTrap(void);
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const & copy);
 	~ScavTrap(void);

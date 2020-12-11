@@ -6,20 +6,13 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 18:38:17 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:13:54 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 #include <cstdlib> // rand()
-
-FragTrap::FragTrap() : ClapTrap("no name", 100, 100, 100, 100, 1, 30, 20, 5)
-{
-	srand(time(NULL));
-	std::cout << "FragTrap Default constructor called, " << this->_name
-	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
-}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
@@ -42,15 +35,7 @@ FragTrap::~FragTrap(void)
 
 FragTrap& FragTrap::operator=(FragTrap const & rhs)
 {
-	this->_name = rhs._name;
-	this->_hit_points = rhs._hit_points;
-	this->_max_hit_points = rhs._max_hit_points;
-	this->_energy_points = rhs._energy_points;
-	this->_max_energy_points = rhs._max_energy_points;
-	this->_level = rhs._level;
-	this->_melee_attack_damage = rhs._melee_attack_damage;
-	this->_ranged_attack_damage = rhs._ranged_attack_damage;
-	this->_armor_damage_reduction = rhs._armor_damage_reduction;
+    ClapTrap::operator=(rhs);
 
 	return (*this);
 }

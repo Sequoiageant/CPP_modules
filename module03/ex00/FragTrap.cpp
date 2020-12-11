@@ -6,20 +6,14 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 15:54:10 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 13:20:52 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
-#include <cstdlib> // rand()
-
-FragTrap::FragTrap() : _name("no name"), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30), _ranged_attack_damage(20), _armor_damage_reduction(5)
-{
-	// srand(time(NULL));
-	std::cout << "Default constructor called, " << this->_name
-	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
-}
+#include <cstdlib>     /* srand, rand */
+#include <ctime>       /* time */
 
 FragTrap::FragTrap(std::string name) : _name(name), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30), _ranged_attack_damage(20), _armor_damage_reduction(5)
 {

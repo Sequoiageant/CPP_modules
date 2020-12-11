@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 18:42:12 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:12:03 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _max_hit_p
 {
 	srand(time(NULL));
 	std::cout << "ClapTrap Overload constructor called, " << this->_name
-	<< " says: \"MY PECS HAVE PECS\"" << std::endl;
+	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
 }
 
 ClapTrap::	ClapTrap(std::string name, unsigned int hp, unsigned int max_hp, unsigned int ep, unsigned int max_ep, unsigned int level, unsigned int mad, unsigned int rad, unsigned int adr)
@@ -33,7 +33,7 @@ ClapTrap::	ClapTrap(std::string name, unsigned int hp, unsigned int max_hp, unsi
 {
 	srand(time(NULL));
 	std::cout << "ClapTrap Overload constructor called, " << this->_name
-	<< " says: \"MY PECS HAVE PECS\"" << std::endl;
+	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & copy)

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:55:52 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 16:26:12 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 13:23:04 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ private:
 	unsigned int	_melee_attack_damage;
 	unsigned int	_ranged_attack_damage;
 	unsigned int	_armor_damage_reduction;
+	ScavTrap(void);
 
 public:
-	ScavTrap(void);
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const & copy);
 	~ScavTrap(void);
@@ -49,7 +49,5 @@ public:
 
 	ScavTrap& operator=(ScavTrap const & rhs);
 };
-
-// std::ostream & operator<<(std::ostream & o, ScavTrap const & rhs);
 
 #endif // SCAV_TRAP_HPP

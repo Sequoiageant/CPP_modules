@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 16:14:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 18:16:44 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:15:04 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class FragTrap : public ClapTrap {
 
 private:
+	FragTrap(void);
 
 public:
-	FragTrap(void);
 	FragTrap(std::string name);
 	FragTrap(FragTrap const & copy);
 	~FragTrap(void);
@@ -37,7 +37,5 @@ public:
 
 	FragTrap& operator=(FragTrap const & rhs);
 };
-
-// std::ostream& operator<<(std::ostream & o, FragTrap const & rhs);
 
 #endif // FRAG_TRAP_HPP

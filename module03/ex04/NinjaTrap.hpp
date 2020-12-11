@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 11:50:58 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 09:57:42 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:52:00 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,5 @@ public:
 
 	NinjaTrap& operator=(NinjaTrap const & rhs);
 };
-
-// std::ostream & operator<<(std::ostream & o, NinjaTrap const & rhs);
 
 #endif // NINJA_TRAP_HPP

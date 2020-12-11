@@ -6,20 +6,13 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/11 16:27:28 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:03:03 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 #include <cstdlib> // rand()
-
-ScavTrap::ScavTrap() : _name("no name"), _hit_points(100), _max_hit_points(100), _energy_points(50), _max_energy_points(50), _level(1), _melee_attack_damage(20), _ranged_attack_damage(15), _armor_damage_reduction(3)
-{
-	// srand(time(NULL));
-	std::cout << "Default constructor called, " << this->_name
-	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
-}
 
 ScavTrap::ScavTrap(std::string name) : _name(name), _hit_points(100), _max_hit_points(100), _energy_points(50), _max_energy_points(50), _level(1), _melee_attack_damage(20), _ranged_attack_damage(15), _armor_damage_reduction(3)
 {
@@ -107,7 +100,7 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::challengeNewcomer(void) const
 {
-	static std::string	challenges[5] = {"meleeAttack", "rangedAttack", "funnyAttack", "sleepingAttack", "crapyAttack"};
+	static std::string	challenges[5] = {"Beat Trump in stupidity", "Take off the Duracell of Sarko", "Laugh at kim jong un", "Make the war like Macron", "Like sex more than DSK"};
 
 	std::cout << "FR4G-TP " << this->_name
 	<< " offers: And the challenge is.... " << challenges[rand() % 5] << " !" << std::endl;	

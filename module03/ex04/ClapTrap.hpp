@@ -26,7 +26,7 @@ public:
 	ClapTrap(ClapTrap const & copy);
 	~ClapTrap(void);
 
-	std::string	getName(void) const;
+	std::string		getName(void) const;
 	unsigned int	getHP(void) const;
 
 	void	rangedAttack(std::string const & target);
@@ -37,7 +37,5 @@ public:
 	void	introduction(void) const;
 	ClapTrap& operator=(ClapTrap const & rhs);
 };
-
-// std::ostream & operator<<(std::ostream & o, ClapTrap const & rhs);
 
 #endif // CLAP_TRAP_HPP

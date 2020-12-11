@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:48:41 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/12 13:12:45 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:29:58 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 #include <cstdlib> // rand()
-
-NinjaTrap::NinjaTrap() : ClapTrap("no name", 60, 60, 120, 120, 1, 60, 5, 0)
-{
-	srand(time(NULL));
-	std::cout << "NinjaTrap Default constructor called, " << this->_name
-	<< " says: \"Bacon is for sycophants and products of incest\"" << std::endl;
-}
 
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
