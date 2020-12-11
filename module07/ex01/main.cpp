@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:12:13 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/10 12:31:36 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 12:27:49 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 int main( void ) {
 
-	int tab[4] = { 5, 2, 3, 1 };
+	int tab[4] = { 1, 2, 3, 4 };
 	::iter(tab, 4, ft_increment);
 
-	float tabf[4] = { 5.2f, 3.4f, 1.0f, 2.2f };
+	float tabf[4] = { 1.2f, 2.4f, 3.0f, 4.2f };
 	::iter(tabf, 4, ft_increment);
 	
 	char tabc[4] = { 'a', 'b', 'c', 'd' };
