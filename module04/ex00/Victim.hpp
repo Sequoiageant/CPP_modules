@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:54:47 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/24 14:35:44 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 15:52:38 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <iostream>
 
 class Victim {
-
-private:
 
 protected:
 	Victim(void);

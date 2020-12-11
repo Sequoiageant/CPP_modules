@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/30 12:15:23 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 18:22:23 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 			return this->_sources[i]->clone();
 		}
 	}
-	std::cout << "Materia of type " << type << "is unknown, learn it to be able to create it !" << std::endl;
+	std::cout << "Materia of type " << type << " is unknown, learn it to be able to create it !" << std::endl;
 	return NULL;
 }

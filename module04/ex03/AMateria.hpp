@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/28 11:47:54 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 17:13:41 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,5 @@ public:
 	virtual AMateria* clone(void) const = 0;
 	virtual void use(ICharacter& target);
 };
-
-std::ostream & operator<<(std::ostream & o, AMateria const & rhs);
 
 #endif // A_MATERIA_HPP

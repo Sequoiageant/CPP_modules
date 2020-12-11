@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/01 11:30:26 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 18:23:21 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,9 @@ int main(void)
 		
 		/*Invalide inventory index*/
 		moi.use(42, *bob);
+
+		/*Unknown materia*/
+		tmp = src->createMateria("metal");
 
 		tmp = src->createMateria("cure");
 		moi.equip(tmp);

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:19 by julnolle          #+#    #+#             */
-/*   Updated: 2020/11/30 12:02:05 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 17:14:27 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ public:
 	virtual void learnMateria(AMateria*);
 	virtual AMateria* createMateria(std::string const & type);
 };
-
-std::ostream & operator<<(std::ostream & o, MateriaSource const & rhs);
 
 #endif // MATERIA_SOURCE_HPP
