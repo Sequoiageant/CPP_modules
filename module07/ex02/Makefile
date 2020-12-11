@@ -6,7 +6,7 @@
 #    By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 10:39:10 by julnolle          #+#    #+#              #
-#    Updated: 2020/12/10 16:53:53 by julnolle         ###   ########.fr        #
+#    Updated: 2020/12/11 12:01:51 by julnolle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ HEADER = Array.hpp
 # ---------------- SRC --------------- #
 
 SRCS = main.cpp
+SRCS += Fixed.cpp
 
 vpath %.cpp ./
 
