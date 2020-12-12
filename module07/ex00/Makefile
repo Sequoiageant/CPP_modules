@@ -6,7 +6,7 @@
 #    By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 10:39:10 by julnolle          #+#    #+#              #
-#    Updated: 2020/12/09 17:12:48 by julnolle         ###   ########.fr        #
+#    Updated: 2020/12/12 14:50:45 by julnolle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ CFLAGS +=	-std=c++98
 # ---------------- SRC --------------- #
 
 SRCS = main.cpp
+SRCS += Fixed.cpp
 
 vpath %.cpp ./
 
@@ -43,7 +44,7 @@ $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) -o $@
 # 			echo "$(_BOLD)$(_YELLOW)==> $@ linked$(_END)"
 
-$(OBJS): 	$(DIR_OBJS)%.o: %.cpp | $(DIR_OBJS)
+$(OBJS): 	$(DIR_OBJS)%.o: %.cpp whatever.hpp| $(DIR_OBJS)
 			$(CC) $(CFLAGS) -c $< -o $@
 # 			echo "$(_BOLD)$(_GREEN)--> $@ made$(_END)"
 

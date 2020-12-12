@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:28:45 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/08 14:11:21 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 14:28:31 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@
 #include <limits>
 #include <climits>
 #include <cfloat>
-// #include <cctype>
-
 
 Convert::Convert(const char *value) : _value(std::string(value))
 {
-
 	this->_charVal = '*';
 	this->_intVal = 0;
 	this->_floatVal = 0.0f;
@@ -34,7 +31,7 @@ Convert::Convert(const char *value) : _value(std::string(value))
 	this->_precision = this->_getPrecision(this->_value);
 }
 
-Convert::Convert(Convert const & copy)// :  _cValue(copy._cValue), _value(copy._value)
+Convert::Convert(Convert const & copy)
 {
 	*this = copy;
 }
@@ -44,10 +41,21 @@ Convert::~Convert(void)
 	return;
 }
 
-// Convert & Convert::operator=(Convert const & rhs)
-// {
+Convert & Convert::operator=(Convert const & rhs)
+{
+	this->_value = rhs._value;
+	this->_charVal = rhs._charVal;
+	this->_intVal = rhs._intVal;
+	this->_floatVal = rhs._floatVal;
+	this->_doubleVal = rhs._doubleVal;
+	this->_charStr = rhs._charStr;
+	this->_intStr = rhs._intStr;
+	this->_floatStr = rhs._floatStr;
+	this->_doubleStr = rhs._doubleStr;
+	this->_precision = rhs._precision;
 
-// }
+	return (*this);
+}
 
 int		Convert::_getPrecision(std::string str)
 {
@@ -133,6 +141,7 @@ char	Convert::_detectType(void)
 	char				ret;
 	// C'est moche ! Trouver un autre moyen que if/else if/else !?
 	ss << this->_value;
+	ss.exceptions(std::istream::failbit);
 	if (this->_isInt(this->_value))
 	{
 		ss >> this->_intVal;
@@ -168,8 +177,9 @@ void	Convert::_convertFromInt(void)
 	std::ostringstream o2;
 	std::ostringstream o3;
 
-
-	if (!(this->_intVal >= 32 && this->_intVal < 127))
+	if (this->_intVal < 0 || this->_intVal > std::numeric_limits<char>::max())
+		this->_charStr = "impossible";
+	else if (!(this->_intVal >= 32 && this->_intVal < 127))
 		this->_charStr = "Non displayable";
 	else
 	{
@@ -232,8 +242,10 @@ void	Convert::_convertFromDouble(void)
 		o2 << this->_intVal;
 		this->_intStr = o2.str();
 	}
-	if (!(this->_intVal >= 32 && this->_intVal < 127))
+	if (this->_doubleVal < 0 || this->_doubleVal > std::numeric_limits<char>::max())
 		this->_charStr = "impossible";
+	else if (!(this->_intVal >= 32 && this->_intVal < 127))
+		this->_charStr = "Non displayable";
 	else
 	{
 		this->_charVal = static_cast<char>(this->_doubleVal);;
@@ -266,8 +278,10 @@ void	Convert::_convertFromFloat(void)
 		this->_intStr = o2.str();
 	}
 
-	if (!(this->_intVal >= 32 && this->_intVal < 127))
+	if (this->_floatVal < 0 || this->_floatVal > std::numeric_limits<char>::max())
 		this->_charStr = "impossible";
+	else if (!(this->_intVal >= 32 && this->_intVal < 127))
+		this->_charStr = "Non displayable";
 	else
 	{
 		this->_charVal = static_cast<char>(this->_floatVal);;
@@ -299,22 +313,28 @@ void	Convert::doConversion(void)
 	static char const types[5] = {'i', 'c', 'd', 'f', 'n'};
 	void (Convert::*conv[5])(void) = {&Convert::_convertFromInt, &Convert::_convertFromChar, &Convert::_convertFromDouble, &Convert::_convertFromFloat, &Convert::_convertError};
 
-	type = this->_detectType();
+	try {
+		type = this->_detectType();
 
 	for (int i = 0; i < 5; ++i)
 	{
 		if (type == types[i])
 			(this->*conv[i])();
 	}
-
-	std::cout << "Input String: " << this->_value << std:: endl;
-	std::cout << "type: " << type << std:: endl;
-	std::cout << "precision: " << this->_precision << std:: endl << std:: endl;
+	
+	/*For debug: */
+	// std::cout << "Input String: " << this->_value << std:: endl;
+	// std::cout << "type: " << type << std:: endl;
+	// std::cout << "precision: " << this->_precision << std:: endl << std:: endl;
 
 	std::cout << "char: " << this->_charStr << std:: endl;
 	std::cout << "int: " << this->_intStr << std:: endl;
 	std::cout << "float: " << this->_floatStr << std:: endl;
 	std::cout << "double: " << this->_doubleStr << std:: endl;
 
+	}
+	catch(const std::exception& e) {
+		std::cerr << "The parameter is out of range" << '\n';
+	}
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:18:35 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/07 18:32:52 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 09:47:59 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ public:
 	Convert(Convert const & copy);
 	~Convert(void);
 
-	// Convert & operator=(Convert const & rhs);
+	Convert & operator=(Convert const & rhs);
 
 	void	doConversion(void);
 };

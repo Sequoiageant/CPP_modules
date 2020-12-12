@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:12:13 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/09 17:38:52 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 14:50:21 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 template<typename T>
 void swap(T & a, T & b)
 {
-	T tmp;
+	T tmp(a);
 
-	tmp = a;
 	a = b;
 	b = tmp;
 }
