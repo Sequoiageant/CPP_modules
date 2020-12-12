@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 11:17:51 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/03 12:28:35 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 08:54:45 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,7 @@ AForm* Intern::_fillShrubbery(std::string const & target) const
 	return new ShrubberyCreationForm(target);
 }
 
+const char* Intern::FormNotFound::what() const throw()
+{
+	return ("This intern is a noob, doesn't know this form !");
+}

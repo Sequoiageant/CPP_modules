@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 14:34:55 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 08:51:40 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,16 @@ public:
 
 	void				signForm(AForm &);
 	void	 			executeForm(AForm const & form) const;
-
+	
 	class GradeTooHighException : public std::exception {
 
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("The bureaucrat's grade is too high !");
-		}
+		virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
 
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("The bureaucrat's grade is too low !");
-		}
+		virtual const char* what() const throw();
 	};
 };
 

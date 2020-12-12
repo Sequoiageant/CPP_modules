@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/04 10:00:12 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 09:21:53 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
 		office.setSignatory(&bob);
 		office.setExecutor(&jim);
 
-		office.doBureaucracy("robotomy request", "Bender"); //"presidential pardon", "robotomy request", "shrubbery creation"
+		office.doBureaucracy("robotomy request", "Bender");
 		office.doBureaucracy("presidential pardon", "Bender");
 		office.doBureaucracy("shrubbery creation", "Bender");
 	}

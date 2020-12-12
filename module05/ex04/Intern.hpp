@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 11:17:51 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/03 18:58:23 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 08:54:09 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ public:
 	class FormNotFound : public std::exception {
 
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("This intern is a noob, doesn't know this form !");
-		}
+		virtual const char* what() const throw();
 	};
 };
 

@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/03 10:47:49 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 09:09:15 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,19 @@ AForm & AForm::operator=(AForm const & rhs)
 {
 	this->_ratified = rhs.getRatification();
 	return (*this);
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+	return ("grade is too high !");
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+	return ("grade is too low !");
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return ("The form is not signed !");
 }

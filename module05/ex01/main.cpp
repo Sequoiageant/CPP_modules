@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:34:46 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 11:26:31 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/12 09:01:42 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "/*Cannot sign because grade too Low*/" << std::endl;
+	std::cout << std::endl << "/*Cannot sign because grade too Low*/" << std::endl;
 	try {
 		Bureaucrat bob("bob", 5);
 		bob.signForm(&CB21);
@@ -40,7 +40,7 @@ int main()
 	std::cout << std::endl << "/*Form cannot be created*/" << std::endl;
 	try {
 		Form CB22("CB22", 0, 3);
-		std::cout << CB21;
+		std::cout << CB22;
 	}
 	catch(const std::exception& e) {
 		std::cerr << "Form " << e.what() << std::endl;

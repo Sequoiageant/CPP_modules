@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 11:27:47 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:23:37 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,13 @@ std::ostream & operator<<(std::ostream & o, Form const & rhs)
 	else
 		o << ", Unsigned)" << std::endl;
 	return o;
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return ("grade is too high !");
+}
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return ("grade is too low !");
 }

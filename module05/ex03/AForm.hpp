@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:29:43 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/02 13:08:33 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:27:06 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,19 @@ public:
 	class GradeTooHighException : public std::exception {
 
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("grade is too high !");
-		}
+		virtual const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception {
 
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("grade is too low !");
-		}
+		virtual const char* what() const throw();
 	};
 
 	class FormNotSignedException : public std::exception {
 
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("The form is not signed !");
-		}
+		virtual const char* what() const throw();
 	};
 };
 
