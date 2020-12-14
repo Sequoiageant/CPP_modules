@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 11:47:51 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/14 16:07:16 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/14 19:24:10 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 # include <algorithm>
 
 template<typename T>
+typename T::iterator easyfind(T& container, const int& i)
+{
+	typename T::iterator p;
+	typename T::iterator end = container.end();
+
+	p = find(container.begin(), end, i);
+	if (p != end)
+		return (p);
+	else
+		return (end);
+}
+
+/*template<typename T>
 bool easyfind(T& container, const int& val)
 {
 	typename T::const_iterator first = container.begin();
@@ -41,19 +54,5 @@ bool easyfindF(T& container, const int& i)
 		return (true);
 	else
 		return (false);
-}
-
-/*template<typename T>
-typename T::iterator easyfindI(T& container, const int& i)
-{
-	typename T::iterator p;
-	typename T::iterator end = container.end();
-
-	p = find(container.begin(), end, i);
-	if (p != end)
-		return (p);
-	else
-		return (end);
-}
-*/
+}*/
 #endif // EASYFIND_HPP
