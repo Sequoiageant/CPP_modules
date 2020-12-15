@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 16:36:00 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/14 18:19:32 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/15 11:49:24 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ private:
 	std::vector<int>	_nbrs;
 	unsigned int		_size;
 	unsigned int		_actualSize;
+	unsigned int		_findSpan(int i, std::vector<int>::iterator, std::vector<int>::iterator);
 	Span(void);
 
 public:
@@ -31,6 +32,7 @@ public:
 	Span& operator=(Span const & rhs);
 
 	void			addNumber(const int& i);
+	void			addNumber(std::vector<int>::iterator, std::vector<int>::iterator);
 	unsigned int	shortestSpan(void);
 	unsigned int	longestSpan(void);
 
