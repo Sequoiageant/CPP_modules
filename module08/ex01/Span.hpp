@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 16:36:00 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/15 11:49:24 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:23:38 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,20 @@ public:
 	Span& operator=(Span const & rhs);
 
 	void			addNumber(const int& i);
-	void			addNumber(std::vector<int>::iterator, std::vector<int>::iterator);
 	unsigned int	shortestSpan(void);
 	unsigned int	longestSpan(void);
 
 	std::vector<int> getNbrs(void) const;
+
+	template<typename T>
+	void addNumber(T first, T last) {
+
+		while(first != last)
+		{
+			this->addNumber(*first);
+			++first;
+		}
+	}	
 
 	class outOfRangeException : public std::exception {
 	public:

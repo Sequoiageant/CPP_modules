@@ -6,13 +6,14 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 16:36:00 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/15 11:58:41 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:21:08 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
 #include <vector>
+#include <list>
 #include <ctime>        // std::time
 #include <cstdlib>      // std::rand, std::srand
 
@@ -56,9 +57,9 @@ int main(void)
 	}
 
 
-	std::cout << std::endl << "5 random numbers:" << std::endl;
+	std::cout << std::endl << "5 random numbers (from a list):" << std::endl;
 	Span sp2 = Span(5);
-	std::vector<int> v2(5);
+	std::list<int> v2(5);
 	std::generate (v2.begin(), v2.end(), getRandomInt);
 	
 	sp2.addNumber(v2.begin(), v2.end());

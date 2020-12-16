@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 16:36:00 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/15 11:49:27 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:21:48 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,6 @@ void			Span::addNumber(const int& i)
 	}
 	else
 		throw Span::outOfRangeException();
-}
-
-void			Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last)
-{
-	while(first != last)
-	{
-	    this->_nbrs.push_back(*first);
-		this->_actualSize++;
-	    ++first;
-	}
 }
 
 unsigned int	Span::shortestSpan(void)
