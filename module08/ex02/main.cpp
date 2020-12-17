@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 12:02:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/16 16:02:27 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:07:16 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,43 @@ int main()
 	std::cout << std::endl << "lst display with iterators:" << std::endl;
 	std::list<int>::iterator first = lst.begin();
 	std::list<int>::iterator last = lst.end();
-	++it;
-	--it;
+	++first;
+	--first;
 	while (first != last)
 	{
 		std::cout << *first << std::endl;
 		++first;
 	}
 
+	
+
+	std::cout << std::endl << "------mstack of char: ------" << std::endl;
+	MutantStack<char> mstack3;
+	mstack3.push(40);
+	mstack3.push(126);
+	std::cout << "mstack3.top(): " << mstack3.top() << std::endl;
+
+	std::cout << "mstack3.size() before pop: " << mstack3.size() << std::endl;
+	mstack3.pop();
+	std::cout << "mstack3.size() after pop: " << mstack3.size() << std::endl;
+
+	mstack3.push(37);
+	mstack3.push(100);
+	mstack3.push(120);
+	mstack3.push(41);
+
+	std::cout << "mstack3.top() before ++: " << mstack3.top()++ << std::endl;
+	std::cout << "mstack3.top() after ++: " << mstack3.top() << std::endl;
+
+	std::cout << std::endl << "mstack3 display with iterators:" << std::endl;
+	MutantStack<char>::iterator it3 = mstack3.begin();
+	MutantStack<char>::iterator ite3 = mstack3.end();
+
+	while (it3 != ite3)
+	{
+		std::cout << *it3 << std::endl;
+		++it3;
+	}
 
 	return 0;
 }
