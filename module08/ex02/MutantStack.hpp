@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 12:02:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/16 15:43:37 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:49:23 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 */
 
 	
-	class iterator : public std::iterator<std::input_iterator_tag, T> {
+	class iterator : public std::iterator<std::input_iterator_tag, typename std::deque<T>::iterator> {
 
 	private:
 		T *p;
@@ -54,7 +54,7 @@ public:
 		iterator operator--(int) {iterator tmp(*this); operator--(); return tmp;}
 		bool operator==(const iterator& rhs) const {return p==rhs.p;}
 		bool operator!=(const iterator& rhs) const {return p!=rhs.p;}
-		int& operator*() {return *p;}
+		T& operator*() {return *p;}
 		~iterator(void) {}
 		iterator& operator=(iterator const & rhs) {
 			*this = rhs;
