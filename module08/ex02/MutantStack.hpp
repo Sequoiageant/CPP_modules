@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 12:02:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/18 11:32:40 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:35:58 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	MutantStack(MutantStack const & copy) : std::stack<T>(copy) {}
 	~MutantStack(void) {}
 	MutantStack& operator=(MutantStack const & rhs) {
-		this->stack::operator=(rhs);
+		this->c = rhs.c;
 		return (*this);
 	}
 
