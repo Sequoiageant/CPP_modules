@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 12:02:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/17 12:07:16 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:30:29 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+	std::cout << std::endl << "------mstack of ints (given main): ------" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -58,36 +59,6 @@ int main()
 	std::cout << "mstack2.size() before pop: " << mstack2.size() << std::endl;
 
 
-
-	std::cout << std::endl << "------list same as mstack: ------" << std::endl;
-	std::list<int> lst;
-	lst.push_front(5);
-	lst.push_front(17);
-	std::cout << "lst.front(): " << lst.front() << std::endl;
-
-	std::cout << "lst.size() before pop: " << lst.size() << std::endl;
-	lst.pop_front();
-	std::cout << "lst.size() after pop: " << lst.size() << std::endl;
-
-	lst.push_front(3);
-	lst.push_front(5);
-	lst.push_front(737);
-	lst.push_front(0);
-	lst.push_front(41);
-
-	std::cout << "lst.front() before ++: " << lst.front()++ << std::endl;
-
-	std::cout << std::endl << "lst display with iterators:" << std::endl;
-	std::list<int>::iterator first = lst.begin();
-	std::list<int>::iterator last = lst.end();
-	++first;
-	--first;
-	while (first != last)
-	{
-		std::cout << *first << std::endl;
-		++first;
-	}
-
 	
 
 	std::cout << std::endl << "------mstack of char: ------" << std::endl;
@@ -116,6 +87,55 @@ int main()
 	{
 		std::cout << *it3 << std::endl;
 		++it3;
+	}	
+
+	std::cout << std::endl << "------mstack of std::string: ------" << std::endl;
+	MutantStack<std::string> mstack4;
+	mstack4.push("un vilain chasseur");
+	mstack4.push("soudain ils croisent");
+	mstack4.push("vont aux bois");
+	mstack4.push("et Renee");
+	mstack4.push("Michel");
+	std::cout << "mstack4.top(): " << mstack4.top() << std::endl;
+
+
+	std::cout << std::endl << "mstack4 display with iterators:" << std::endl;
+	MutantStack<std::string>::iterator it4 = mstack4.begin();
+	MutantStack<std::string>::iterator ite4 = mstack4.end();
+
+	while (it4 != ite4)
+	{
+		std::cout << *it4 << std::endl;
+		++it4;
+	}
+
+	std::cout << std::endl << "------list same as mstack: ------" << std::endl;
+	std::list<int> lst;
+	lst.push_back(5);
+	lst.push_back(17);
+	std::cout << "lst.back(): " << lst.back() << std::endl;
+
+	std::cout << "lst.size() before pop: " << lst.size() << std::endl;
+	lst.pop_back();
+	std::cout << "lst.size() after pop: " << lst.size() << std::endl;
+
+	lst.push_back(3);
+	lst.push_back(5);
+	lst.push_back(737);
+	lst.push_back(0);
+	lst.push_back(41);
+
+	std::cout << "lst.back() before ++: " << lst.back()++ << std::endl;
+
+	std::cout << std::endl << "lst display with iterators:" << std::endl;
+	std::list<int>::iterator first = lst.begin();
+	std::list<int>::iterator last = lst.end();
+	++first;
+	--first;
+	while (first != last)
+	{
+		std::cout << *first << std::endl;
+		++first;
 	}
 
 	return 0;

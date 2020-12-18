@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 12:02:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/17 11:49:23 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/18 11:32:40 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,26 @@ public:
 	MutantStack(MutantStack const & copy) : std::stack<T>(copy) {}
 	~MutantStack(void) {}
 	MutantStack& operator=(MutantStack const & rhs) {
-		*this = rhs;
+		this->stack::operator=(rhs);
 		return (*this);
 	}
 
-/*	bool			empty() const;
-	unsigned int	size() const;
-	T&				top();
-	const T&		top() const;
-	void 			push(const T& val);
-	void			pop();
-*/
+	/*see /usr/include/c++/9/bits/stl_*.h or cpluscplus.com*/
+	typedef typename std::stack<T>::container_type::iterator iterator;
+
+	iterator begin(void) {
+		return iterator(this->c.begin());
+	}
+
+	iterator end(void) {
+		return iterator(this->c.end());
+	}
 
 	
-	class iterator : public std::iterator<std::input_iterator_tag, typename std::deque<T>::iterator> {
+/*	class iterator : public std::iterator<std::input_iterator_tag, T> {
 
 	private:
-		T *p;
+		T* p;
 
 	public:
 		iterator(void);
@@ -65,10 +68,7 @@ public:
 	
 	iterator begin(void) { return iterator(&this->top()); }
 	iterator end(void) { return iterator((&this->top() - this->size())); }
-	
+*/	
 };
-
-template<typename T>
-std::ostream & operator<<(std::ostream & o, MutantStack<T> const & rhs);
 
 #endif // MUTANTSTACK_HPP
