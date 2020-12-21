@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 18:22:13 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/12 15:31:04 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/21 15:34:01 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void ft_increment(T & elem)
 template<typename T>
 void ft_print(T const & elem)
 {
-	std::cout << elem << std::endl;
+	std::cout << elem << " ";
 }
 
 template<typename T>
