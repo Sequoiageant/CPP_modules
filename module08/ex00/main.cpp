@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 11:47:51 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/14 19:23:41 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/22 11:35:51 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(void)
 	if (::easyfind(vec, 30) != ite)
 		std:: cout << std::boolalpha << "Found: " << *::easyfind(vec, 30) << std::endl;
 	else
-		std:: cout << "not found" << std::endl;
+		std:: cout << "30 not found" << std::endl;
 
 
 
@@ -68,7 +68,7 @@ int main(void)
 	if (::easyfind(lst, 30) != iteL)
 		std:: cout << std::boolalpha << "Found: " << *::easyfind(lst, 30) << std::endl;
 	else
-		std:: cout << "not found" << std::endl;
+		std:: cout << "30 not found" << std::endl;
 
 	std:: cout << "----> deque <---- "<< std::endl;
 	std::deque<int> dq;
@@ -91,7 +91,7 @@ int main(void)
 	if (::easyfind(dq, 30) != iteDq)
 		std:: cout << std::boolalpha << "Found: " << *::easyfind(dq, 30) << std::endl;
 	else
-		std:: cout << "not found" << std::endl;
+		std:: cout << "30 not found" << std::endl;
 
 	return 0;
 }

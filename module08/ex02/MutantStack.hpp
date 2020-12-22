@@ -6,7 +6,7 @@
 /*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 12:02:50 by julnolle          #+#    #+#             */
-/*   Updated: 2020/12/18 11:35:58 by julnolle         ###   ########.fr       */
+/*   Updated: 2020/12/22 11:43:28 by julnolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ public:
 	}
 
 	
-/*	class iterator : public std::iterator<std::input_iterator_tag, T> {
+/*	Other way to do it: create a nested class iterator
+
+class iterator : public std::iterator<std::input_iterator_tag, T> {
 
 	private:
 		T* p;
